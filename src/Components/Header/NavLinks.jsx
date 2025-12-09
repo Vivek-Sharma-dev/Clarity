@@ -97,13 +97,13 @@ const NavLinks = () => {
                   {link.label}
                 </span>
                 <ul
-                  className={`absolute z-50 transition-all w-50 text-center duration-300 bg-(--secondary-color)/70 backdrop-blur-sm px-4 py-3 rounded-lg
+                  className={`absolute z-50 transition-all w-50 text-center lg:top-full lg:-left-1/2 duration-300 bg-(--secondary-color)/70 backdrop-blur-sm px-4 py-3 rounded-lg
     ${
       openDropdown
         ? "opacity-100 pointer-events-auto scale-100 -right-52  -top-20"
-        : "opacity-0 pointer-events-none scale-95 -right-52  -top-20"
+        : "opacity-0 pointer-events-none scale-0 -right-52  -top-20"
     }
-    lg:opacity-0 lg:pointer-events-none lg:scale-95
+    lg:opacity-0 lg:pointer-events-none lg:scale-0
     lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto lg:group-hover:scale-100
   `}
                 >

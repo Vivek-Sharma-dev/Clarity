@@ -11,6 +11,8 @@ import {
 import { Menu } from "lucide-react";
 
 const NavLinks = () => {
+  const dropdownRef = useRef(null);
+  const [openDropdown, setOpenDropdown] = useState(false);
   const [isMenuActive, setIsMenuActive] = useState(false);
   const [active, setActive] = useState("home");
   const menuRef = useRef(null);
@@ -38,6 +40,9 @@ const NavLinks = () => {
       if (menuRef.current && !menuRef.current.contains(e.target)) {
         setIsMenuActive(false);
       }
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
+        setOpenDropdown(false);
+      }
     }
 
     document.addEventListener("mousedown", handleClickOutside);
@@ -50,15 +55,13 @@ const NavLinks = () => {
 
   return (
     <nav ref={menuRef} className="order-10 lg:order-0 ml-3 lg:ml-0">
-      
       <button
         onClick={() => setIsMenuActive(!isMenuActive)}
         className="text-white lg:hidden"
       >
-        <Menu size={33}/>
+        <Menu size={33} />
       </button>
       <ul
-        
         className={`${menuBaseStyle} ${
           isMenuActive ? menuMobileStyleOpen : menuMobileStyleClose
         } ${menuLaptopStyle}`}
@@ -85,10 +88,25 @@ const NavLinks = () => {
               </Link>
             </li>
           ) : (
-            <li className="relative" key={link.id}>
+            <li ref={dropdownRef} className="relative z-50" key={link.id}>
               <div className="group">
-                <span className={navLinkBase}>{link.label}</span>
-                <ul className="absolute pointer-events-none opacity-0  group-hover:opacity-100 group-hover:pointer-events-auto w-52 px-5 bg-(--secondary-color)/70 backdrop-blur-2xl -left-6 top-full mt-1 py-3 rounded-2xl transition-all duration-300 scale-0 group-hover:scale-100">
+                <span
+                  onClick={() => setOpenDropdown(!openDropdown)}
+                  className={navLinkBase}
+                >
+                  {link.label}
+                </span>
+                <ul
+                  className={`absolute z-50 transition-all w-50 text-center duration-300 bg-(--secondary-color)/70 backdrop-blur-sm px-4 py-3 rounded-lg
+    ${
+      openDropdown
+        ? "opacity-100 pointer-events-auto scale-100 -right-52  -top-20"
+        : "opacity-0 pointer-events-none scale-95 -right-52  -top-20"
+    }
+    lg:opacity-0 lg:pointer-events-none lg:scale-95
+    lg:group-hover:opacity-100 lg:group-hover:pointer-events-auto lg:group-hover:scale-100
+  `}
+                >
                   {link.children.map((child) => (
                     <li key={child.id} className="mt-2">
                       <Link to={child.id} duration={1200} smooth={true}>

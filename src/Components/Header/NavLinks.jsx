@@ -1,10 +1,19 @@
-import React, { useState } from "react";
-import { Link } from "react-scroll";
-import { navLinkActive, navLinkBase } from "../../Style/NavStyles";
+import { useEffect, useRef, useState } from "react";
+import { Link, scrollSpy } from "react-scroll";
+import {
+  menuBaseStyle,
+  navLinkActive,
+  navLinkBase,
+  menuLaptopStyle,
+  menuMobileStyleClose,
+  menuMobileStyleOpen,
+} from "../../Style/NavStyles";
+import { Menu } from "lucide-react";
 
 const NavLinks = () => {
+  const [isMenuActive, setIsMenuActive] = useState(false);
   const [active, setActive] = useState("home");
-  const [openDropdown, setOpenDropdown] = useState(false);
+  const menuRef = useRef(null);
   const links = [
     { id: "home", label: "Home" },
     { id: "about", label: "About" },
@@ -12,6 +21,7 @@ const NavLinks = () => {
     { id: "portfolio", label: "Portfolio" },
     { id: "team", label: "Team" },
     {
+      id: "dropdown",
       label: "Dropdown",
       dropdown: true,
       children: [
@@ -22,65 +32,77 @@ const NavLinks = () => {
     },
     { id: "contact", label: "Contact" },
   ];
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (menuRef.current && !menuRef.current.contains(e.target)) {
+        setIsMenuActive(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <ul className="flex flex-col lg:flex-row gap-5 items-center text-lg lg:text-2xl ">
-      {links.map((link) => (
-        <li key={link.id} className="cursor-pointer relative">
-          {!link.dropdown ? (
-            <Link
-              to={link.id}
-              spy={true}
-              smooth={true}
-              offset={-300}
-              duration={500}
-              onSetActive={() => setActive(link.id)}
-            >
-              <span
-                className={active === link.id ? navLinkActive : navLinkBase}
+    <nav ref={menuRef} className="order-10 lg:order-0 ml-3 lg:ml-0">
+      
+      <button
+        onClick={() => setIsMenuActive(!isMenuActive)}
+        className="text-white lg:hidden"
+      >
+        <Menu size={33}/>
+      </button>
+      <ul
+        
+        className={`${menuBaseStyle} ${
+          isMenuActive ? menuMobileStyleOpen : menuMobileStyleClose
+        } ${menuLaptopStyle}`}
+      >
+        {links.map((link) =>
+          !link.dropdown ? (
+            <li key={link.id}>
+              <Link
+                to={link.id}
+                smooth={true}
+                duration={500}
+                spy={true}
+                offset={-150}
+                onSetActive={() => {
+                  setActive(link.id);
+                }}
+                onClick={() => setIsMenuActive(false)}
               >
-                {link.label}
-              </span>
-            </Link>
+                <span
+                  className={active === link.id ? navLinkActive : navLinkBase}
+                >
+                  {link.label}
+                </span>
+              </Link>
+            </li>
           ) : (
-            <div
-              className="cursor-pointer"
-              onMouseEnter={() => setOpenDropdown(true)}
-              onMouseLeave={() => setOpenDropdown(false)}
-            >
-              <span
-                className={openDropdown === true ? navLinkActive : navLinkBase}
-              >
-                {link.label}
-              </span>
-              {openDropdown && (
-                <ul id="dropdown" className="absolute top-full -left-5 mt-2 bg-(--secondary-color)/40 backdrop-blur-none rounded-lg p-4 w-50">
+            <li className="relative" key={link.id}>
+              <div className="group">
+                <span className={navLinkBase}>{link.label}</span>
+                <ul className="absolute pointer-events-none opacity-0  group-hover:opacity-100 group-hover:pointer-events-auto w-52 px-5 bg-(--secondary-color)/70 backdrop-blur-2xl -left-6 top-full mt-1 py-3 rounded-2xl transition-all duration-300 scale-0 group-hover:scale-100">
                   {link.children.map((child) => (
                     <li key={child.id} className="mt-2">
-                      <Link
-                        to={child.id}
-                        spy={true}
-                        smooth={true}
-                        offset={-300}
-                        duration={500}
-                        onSetActive={() => setActive(child.id)}
-                      >
-                        <span
-                          className={
-                            active === child.id ? navLinkActive : navLinkBase
-                          }
-                        >
-                          {child.label}
-                        </span>
+                      <Link to={child.id} duration={1200} smooth={true}>
+                        <span className={navLinkBase}>{child.label}</span>
                       </Link>
                     </li>
                   ))}
                 </ul>
-              )}
-            </div>
-          )}
-        </li>
-      ))}
-    </ul>
+              </div>
+            </li>
+          )
+        )}
+      </ul>
+    </nav>
   );
 };
 

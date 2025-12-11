@@ -1,6 +1,7 @@
 import Header from "./Components/Header/Header"
 import AboutSection from "./Pages/AboutSection"
 import HeroSection from "./Pages/HeroSection"
+import ServicesSection from "./Pages/ServicesSection"
 
 
 const App = () => {
@@ -10,6 +11,7 @@ const App = () => {
     <main className=" text-white ">
       <HeroSection />
       <AboutSection />
+      <ServicesSection />
     </main>
     </div>
   )

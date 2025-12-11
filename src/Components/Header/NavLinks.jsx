@@ -74,7 +74,7 @@ const NavLinks = () => {
                 smooth={true}
                 duration={500}
                 spy={true}
-                offset={-150}
+                offset={-300}
                 onSetActive={() => {
                   setActive(link.id);
                 }}

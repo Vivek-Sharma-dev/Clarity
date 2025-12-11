@@ -1,9 +1,12 @@
-import React from "react";
+import {useRef} from "react";
 import { h2Style, primaryBtn } from "../Style/ComponentsStyle";
 import { Check } from "lucide-react";
 import about from "../assets/AboutSection/About1.png";
 import about2 from "../assets/AboutSection/About2.png";
+import { motion, useInView } from "motion/react";
 const AboutSection = () => {
+  const aboutRef = useRef(null);
+  const isInView = useInView(aboutRef, {amount : .2});
   const textList = [
     {
       id: 1,
@@ -22,9 +25,9 @@ const AboutSection = () => {
     },
   ];
   return (
-    <section id="about" className="bg-(--primary-color) py-20">
+    <motion.section ref={aboutRef} id="about" className="bg-(--primary-color) py-20 overflow-hidden">
       <div className="flex gap-5 flex-col lg:flex-row container mx-auto gap-y-12 lg:gap-y-0">
-        <div className="lg:w-2/4 order-1 lg:order-0">
+        <motion.div animate = {isInView ? {x: 0, opacity: 1} : {x: '-100%', opacity: 0}} transition={{duration: .5}} className="lg:w-2/4 order-1 lg:order-0">
           <h4 className="text-(--secondary-color) uppercase font-bold text-sm font-serif">
             discover our story
           </h4>
@@ -48,22 +51,24 @@ const AboutSection = () => {
             ))}
           </ul>
 
-          <button className={`${primaryBtn} mt-5 lg:mt-10`}>
+          <motion.button animate = {isInView ? {scale: 1, opacity: 1} : {scale: 0, opacity: 0}} transition={{duration: .5, delay: .7}} className={`${primaryBtn} mt-5 lg:mt-10`}>
             Discover More
-          </button>
-        </div>
-        <div className="relative lg:w-3/4 ps-8 lg:ps-0">
-          <img
+          </motion.button>
+        </motion.div>
+        <motion.div animate = {isInView ? {x: 0, opacity: 1} : {x: '100%', opacity: 0}} transition={{duration: .5}}  className="relative lg:w-3/4 ps-8 lg:ps-0">
+          <motion.img
+          animate = {isInView ? {scale: 1, opacity: 1} : {scale: 0, opacity: 0}} transition={{duration: .5, delay: .7   }}
             src={about}
             alt="Planing on a task with team members"
             className="border-4 rounded-xl border-gray-500"
           />
-          <img
+          <motion.img
+          animate = {isInView ? {y: 0, opacity: 1} : {y: '100%', opacity: 0}} transition={{duration: .5, delay: 1   }}
             src={about2}
             alt="Celebration with team members"
             className="absolute -bottom-8 lg:-bottom-5 -left-2 lg:-left-10 border-4 rounded-xl border-gray-500/70 w-40 lg:w-80"
           />
-          <div className="flex flex-col lg:flex-row gap-5 absolute -top-25 lg:-top-10 py-5 right-0 bg-(--primary-color)/90 p-3 rounded-xl">
+          <motion.div animate = {isInView ? {x: 1, opacity: 1} : {x: "100%", opacity: 0}} transition={{duration: .5, delay: 1.2   }} className="flex flex-col lg:flex-row gap-5 absolute -top-25 lg:-top-10 py-5 right-0 bg-(--primary-color)/90 p-3 rounded-xl">
             <div className="text-center">
               <span className="text-(--secondary-color) text-2xl lg:text-4xl font-bold">
                 20+
@@ -82,10 +87,10 @@ const AboutSection = () => {
                 Happy Clients
               </span>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

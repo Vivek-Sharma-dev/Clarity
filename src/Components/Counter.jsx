@@ -21,8 +21,8 @@ const Counter = ({ end, title }) => {
     
   return (
     <div className='inline-block text-center'>
-      <h2 className='text-(--secondary-color) text-xl md:text-2xl lg:text-4xl font-bold'>{counter}</h2>
-      <span className='text-gray-400 text-md text-lg lg:text-xl font-medium mt-2'>{title}</span>
+      <h2 className='text-(--secondary-color) text-xl md:text-2xl lg:text-3xl font-bold'>{counter}</h2>
+      <span className='text-gray-400 text-md md:text-lg  font-medium mt-2'>{title}</span>
     </div>
   )
 }

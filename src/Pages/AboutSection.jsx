@@ -23,8 +23,8 @@ const AboutSection = () => {
   ];
   return (
     <section id="about" className="bg-(--primary-color) py-20">
-      <div className="flex gap-5 container mx-auto ">
-        <div className="w-2/4">
+      <div className="flex gap-5 flex-col lg:flex-row container mx-auto gap-y-12 lg:gap-y-0">
+        <div className="lg:w-2/4 order-1 lg:order-0">
           <h4 className="text-(--secondary-color) uppercase font-bold text-sm font-serif">
             discover our story
           </h4>
@@ -39,8 +39,8 @@ const AboutSection = () => {
           </p>
           <ul className="my-5 flex flex-col gap-4 justify-center">
             {textList.map((text) => (
-              <li key={text.id} className="flex gap-3 ">
-                <span className="p-1 bg-(--secondary-color) text-(--primary-color) text-xs rounded-full">
+              <li key={text.id} className="flex gap-3 items-center">
+                <span className="p-1  bg-(--secondary-color) text-(--primary-color) text-xs rounded-full">
                   {text.icon}
                 </span>{" "}
                 {text.text}
@@ -52,7 +52,7 @@ const AboutSection = () => {
             Discover More
           </button>
         </div>
-        <div className="relative w-3/4">
+        <div className="relative lg:w-3/4 ps-8 lg:ps-0">
           <img
             src={about}
             alt="Planing on a task with team members"
@@ -61,9 +61,9 @@ const AboutSection = () => {
           <img
             src={about2}
             alt="Celebration with team members"
-            className="absolute -bottom-5 -left-10 border-4 rounded-xl border-gray-500/70 w-80"
+            className="absolute -bottom-8 lg:-bottom-5 -left-2 lg:-left-10 border-4 rounded-xl border-gray-500/70 w-40 lg:w-80"
           />
-          <div className="flex gap-5 absolute -top-10 py-5 right-0 bg-(--primary-color)/90 p-3 rounded-xl">
+          <div className="flex flex-col lg:flex-row gap-5 absolute -top-25 lg:-top-10 py-5 right-0 bg-(--primary-color)/90 p-3 rounded-xl">
             <div className="text-center">
               <span className="text-(--secondary-color) text-2xl lg:text-4xl font-bold">
                 20+

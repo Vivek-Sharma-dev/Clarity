@@ -1,4 +1,4 @@
-import { h2Style, primaryBtn, serviceCardStyle } from "../Style/ComponentsStyle";
+import { h2Style, primaryBtn, sectionBaseStyle, serviceCardStyle } from "../Style/ComponentsStyle";
 import ServiceCard from "../Components/ServiceCard";
 import {
   PanelsTopLeft,
@@ -59,7 +59,7 @@ const ServicesSection = () => {
     <section
       ref={serviceRef}
       id="services"
-      className="bg-(--primary-color) py-5 lg:py-10 px-3 lg:px-0 overflow-hidden"
+      className={sectionBaseStyle}
     >
       <div className="container mx-auto ">
         <div className="text-center">

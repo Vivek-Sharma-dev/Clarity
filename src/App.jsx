@@ -1,6 +1,7 @@
 import Header from "./Components/Header/Header"
 import AboutSection from "./Pages/AboutSection"
 import HeroSection from "./Pages/HeroSection"
+import PortfolioSection from "./Pages/PortfolioSection"
 import ServicesSection from "./Pages/ServicesSection"
 
 
@@ -12,6 +13,7 @@ const App = () => {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
+      <PortfolioSection />
     </main>
     </div>
   )

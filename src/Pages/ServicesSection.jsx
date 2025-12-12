@@ -1,8 +1,12 @@
 import { h2Style } from "../Style/ComponentsStyle";
 import ServiceCard from "../Components/ServiceCard";
 import { PanelsTopLeft, Palette, CodeXml, Smartphone, Megaphone, Search  } from "lucide-react";
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 
 const ServicesSection = () => {
+  const serviceRef = useRef(null)
+  const isInView = useInView(serviceRef, {amount : 0, once: true});
   const cardData = [
     {
       id: 1,
@@ -44,19 +48,20 @@ const ServicesSection = () => {
   ];
   return (
     <section
+      ref={serviceRef}
       id="services"
-      className="bg-(--primary-color) py-5 lg:py-10 px-3 lg:px-0"
+      className="bg-(--primary-color) py-5 lg:py-10 px-3 lg:px-0 overflow-hidden"
     >
       <div className="text-center container mx-auto">
-        <h2 className={h2Style}>Services</h2>
-        <p className="text-gray-400">
+        <motion.h2 initial = {{ y: "100%", opacity: 0 }} animate={isInView ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }} transition={{ duration: .5 }} className={h2Style}>Services</motion.h2>
+        <motion.p initial = {{ y: "100%", opacity: 0 }} animate={isInView ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }} transition={{ duration: .5, delay: .5 }} className="text-gray-400">
           Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
           consectetur velit
-        </p>
+        </motion.p>
       </div>
-      <div className="grid grid-cols-1 md:gird-cols-2 lg:grid-cols-3 lg:flex-row container mx-auto gap-y-5 lg:gap-y-10 gap-10 mt-5 lg:my-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 container mx-auto gap-y-5 lg:gap-y-10 gap-10 mt-5 lg:my-10">
         {cardData.map(card => (
-          <ServiceCard key={card.id} title={card.title} desc={card.desc} tag={card.tag} icon={card.icon} />
+          <ServiceCard key={card.id} title={card.title} desc={card.desc} tag={card.tag} icon={card.icon} serviceRef = {serviceRef} isInView = {isInView} />
         ))}
       </div>
     </section>

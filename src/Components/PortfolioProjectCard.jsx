@@ -9,12 +9,12 @@ const PortfolioProjectCard = ({
   rating,
   link,
   technologies,
+  alt,
 }) => {
-  const temp = ["React", "Node.js", "AWX"];
   return (
     <div className="group hover:-translate-y-2 transition-all duration-300  hover:shadow-[0px_4px_8px_8px_rgba(255,255,255,.4)] w-full rounded-2xl overflow-hidden bg-(--nav-bg) shadow-[0px_0px_1px_1px_rgba(255,255,255,.5)]">
       <div className="relative overflow-hidden">
-        <img src={image} alt="things on book" className="w-full" />
+        <img src={image} alt={alt} className="w-full" />
         <div className="pointer-events-none opacity-0 translate-y-full group-hover:pointer-events-auto group-hover:opacity-100 group-hover:translate-y-0 origin-bottom flex items-center gap-5 justify-center bg-(--secondary-color)/85 h-full w-full absolute top-0 left-0 transition-all duration-500 ease-in-out">
           <span className="bg-(--primary-color) p-4 rounded-2xl hover:bg-(--secondary-color) hover:-translate-y-2 transition-all duration-300">
             <Eye />

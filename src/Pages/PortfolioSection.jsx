@@ -1,11 +1,11 @@
 import { useRef, useState } from "react";
-import ProjectCard from "../Components/PortfolioProjectCard";
 import image1 from "../assets/PortfolioSection/Image1.png";
 import image2 from "../assets/PortfolioSection/Image2.png";
 import image3 from "../assets/PortfolioSection/Image3.png";
 import image4 from "../assets/PortfolioSection/Image4.png";
 import image5 from "../assets/PortfolioSection/Image5.png";
 import image6 from "../assets/PortfolioSection/Image6.png";
+import { motion, AnimatePresence } from "motion/react";
 import {
   h2Style,
   projectBtnActive,
@@ -13,9 +13,13 @@ import {
   sectionBaseStyle,
 } from "../Style/ComponentsStyle";
 import PortfolioProjectCard from "../Components/PortfolioProjectCard";
+import ProjectsCarousel from "../Components/ProjectsCarousel";
 
 const PortfolioSection = () => {
   const portfolioRef = useRef(null);
+  const [isViewerOpen, setIsViewerOpen] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeProject, setActiveProject] = useState([]);
   const [isActive, setIsActive] = useState("All Projects");
   const btnTitles = [
     "All Projects",
@@ -100,6 +104,11 @@ const PortfolioSection = () => {
     },
   ];
 
+  const openViewer = (projects, idx) => {
+    setActiveProject(projects);
+    setCurrentIndex(idx);
+    setIsViewerOpen(true);
+  };
   const filteredProjects = projects.filter(
     (project) => isActive === "All Projects" || project.category === isActive
   );
@@ -130,11 +139,25 @@ const PortfolioSection = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 gap-y-5">
-          {filteredProjects.map((project) => (
-            <PortfolioProjectCard key={project.id} {...project} />
+          {filteredProjects.map((project, idx) => (
+            <PortfolioProjectCard
+              key={project.id}
+              {...project}
+              onView={() => openViewer(filteredProjects, idx)}
+            />
           ))}
         </div>
       </div>
+      <AnimatePresence>
+        {isViewerOpen && (
+          <ProjectsCarousel
+            setIsViewerOpen={setIsViewerOpen}
+            setCurrentIndex={setCurrentIndex}
+            activeProject={activeProject}
+            currentIndex={currentIndex}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 };

@@ -1,16 +1,13 @@
 import { MoveRight } from "lucide-react";
-import { motion, useInView } from "motion/react";
-import { useRef } from "react";
+import { motion } from "motion/react";
 import { serviceCardStyle } from "../Style/ComponentsStyle";
 
 const ServiceCard = ({ title, desc, tag, icon }) => {
-  const CardRef = useRef(null);
-  const isInView = useInView(CardRef, { amount: 0, once: true });
   return (
     <motion.div
-      ref={CardRef}
-      initial={{ y: "100%", opacity: 0.2 }}
-      animate={isInView ? { y: 0, opacity: 1 } : { y: 80, opacity: 0 }}
+      initial={{ x: -100, opacity: 0 }}
+      whileInView={{x : 0, opacity: 1}}
+      viewport={{amount: 0.3}}
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className={`group ${serviceCardStyle}`}
     >

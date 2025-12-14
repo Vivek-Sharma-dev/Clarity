@@ -1,26 +1,30 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import image1 from "../assets/PortfolioSection/Image1.png";
 import image2 from "../assets/PortfolioSection/Image2.png";
 import image3 from "../assets/PortfolioSection/Image3.png";
 import image4 from "../assets/PortfolioSection/Image4.png";
 import image5 from "../assets/PortfolioSection/Image5.png";
 import image6 from "../assets/PortfolioSection/Image6.png";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, useInView } from "motion/react";
 import {
   h2Style,
+  primaryBtn,
   projectBtnActive,
   projectBtnBase,
   sectionBaseStyle,
+  serviceCardStyle,
 } from "../Style/ComponentsStyle";
 import PortfolioProjectCard from "../Components/PortfolioProjectCard";
 import ProjectsCarousel from "../Components/ProjectsCarousel";
 
 const PortfolioSection = () => {
   const portfolioRef = useRef(null);
+  const portfolioCardRef = useRef(null);
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeProject, setActiveProject] = useState([]);
   const [isActive, setIsActive] = useState("All Projects");
+  const isInView = useInView(portfolioRef, { amount: 0.2, once: true });
   const btnTitles = [
     "All Projects",
     "Web Design",
@@ -116,17 +120,27 @@ const PortfolioSection = () => {
   return (
     <section ref={portfolioRef} className={sectionBaseStyle}>
       <div className="container mx-auto">
-        <div className="text-center">
+        <motion.div
+          initial={{ y: "100%", opacity: 0 }}
+          animate={isInView ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-center"
+        >
           <h2 className={h2Style}>Portfolio</h2>
           <p className="text-gray-400 lg:text-lg">
             Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
             consectetur velit
           </p>
-        </div>
+        </motion.div>
         <div className="my-5 lg:my-10">
           <div className="flex gap-5 lg:gap-10 justify-center flex-wrap">
             {btnTitles.map((title, index) => (
-              <button
+              <motion.button
+                initial={{ scale: 0, opacity: 0 }}
+                animate={
+                  isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }
+                }
+                transition={{ duration: 0.5 }}
                 key={index}
                 className={
                   isActive === title ? projectBtnActive : projectBtnBase
@@ -134,7 +148,7 @@ const PortfolioSection = () => {
                 onClick={() => setIsActive(title)}
               >
                 {title}
-              </button>
+              </motion.button>
             ))}
           </div>
         </div>
@@ -147,6 +161,22 @@ const PortfolioSection = () => {
             />
           ))}
         </div>
+        <motion.div className={`mt-5 lg:mt-10 ${serviceCardStyle}`}>
+          <h3 className="capitalize text-xl lg:text-2xl font-bold font-serif">
+            Ready to start your next project?
+          </h3>
+          <p className="text-gray-400 lg:text-lg">
+            Let's work together to bring your digital vision to life
+          </p>
+          <div>
+            <button className={`${primaryBtn} rounded-xl! mr-5`}>
+              Start a Project
+            </button>
+            <button className={`${primaryBtn} rounded-xl! mr-5`}>
+              View All Work
+            </button>
+          </div>
+        </motion.div>
       </div>
       <AnimatePresence>
         {isViewerOpen && (

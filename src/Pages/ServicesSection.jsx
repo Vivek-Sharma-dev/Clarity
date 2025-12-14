@@ -1,4 +1,9 @@
-import { h2Style, primaryBtn, sectionBaseStyle, serviceCardStyle } from "../Style/ComponentsStyle";
+import {
+  h2Style,
+  primaryBtn,
+  sectionBaseStyle,
+  serviceCardStyle,
+} from "../Style/ComponentsStyle";
 import ServiceCard from "../Components/ServiceCard";
 import {
   PanelsTopLeft,
@@ -56,11 +61,7 @@ const ServicesSection = () => {
     },
   ];
   return (
-    <section
-      ref={serviceRef}
-      id="services"
-      className={sectionBaseStyle}
-    >
+    <section ref={serviceRef} id="services" className={sectionBaseStyle}>
       <div className="container mx-auto ">
         <div className="text-center">
           <motion.h2
@@ -93,13 +94,18 @@ const ServicesSection = () => {
               desc={card.desc}
               tag={card.tag}
               icon={card.icon}
-              serviceRef={serviceRef}
-              isInView={isInView}
             />
           ))}
         </div>
-        <motion.div ref={serviceCardRef} animate = {isCardInView ? {y: 0, opacity: 1} : {y: "100%", opacity: 0}} transition={{duration: 0.5}} className={`mt-5 ${serviceCardStyle}`}>
-          <h3 className="capitalize text-xl lg:text-3xl font-bold font-serif">ready to transform your digital presence?</h3>
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          whileInView={{x: 0, opacity: 1}}
+          transition={{ duration: 0.5 }}
+          className={`mt-5 ${serviceCardStyle}`}
+        >
+          <h3 className="capitalize text-xl lg:text-3xl font-bold font-serif">
+            ready to transform your digital presence?
+          </h3>
           <p className="text-gray-400 lg:text-lg">
             Lets's discuss your project and create something amazing together
           </p>

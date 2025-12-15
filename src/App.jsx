@@ -3,6 +3,7 @@ import AboutSection from "./Pages/AboutSection"
 import HeroSection from "./Pages/HeroSection"
 import PortfolioSection from "./Pages/PortfolioSection"
 import ServicesSection from "./Pages/ServicesSection"
+import WhyChooseUs from "./Pages/WhyChooseUs"
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
       <AboutSection />
       <ServicesSection />
       <PortfolioSection />
+      <WhyChooseUs />
     </main>
     </div>
   )

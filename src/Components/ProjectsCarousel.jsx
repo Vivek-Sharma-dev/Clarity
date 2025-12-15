@@ -1,4 +1,3 @@
-import React from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Minimize2, StepBack, StepForward } from "lucide-react";
 
@@ -24,13 +23,13 @@ const ProjectsCarousel = ({
         <div>
           <button
             onClick={() => setIsViewerOpen(false)}
-            className="fixed top-5 right-5"
+            className="fixed top-5 right-5 cursor-pointer"
           >
             <Minimize2 size={30} />
           </button>
           <motion.button
           whileHover={{scale: 1.2}}
-            className="fixed top-1/2 left-10"
+            className="fixed top-1/2 left-10 cursor-pointer"
             onClick={() => setCurrentIndex((i) => Math.max(i - 1, 0))}
           >
             <StepBack size={50}/>
@@ -48,7 +47,7 @@ const ProjectsCarousel = ({
           </AnimatePresence>
           <motion.button
             whileHover={{ scale: 1.2 }}
-            className="fixed top-1/2 right-10"
+            className="fixed top-1/2 right-10 cursor-pointer"
             onClick={() =>
               setCurrentIndex((i) => Math.min(i + 1, activeProject.length - 1))
             }

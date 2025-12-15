@@ -18,9 +18,7 @@ import { motion, useInView } from "motion/react";
 
 const ServicesSection = () => {
   const serviceRef = useRef(null);
-  const serviceCardRef = useRef(null);
   const isInView = useInView(serviceRef, { amount: 0, once: true });
-  const isCardInView = useInView(serviceCardRef, { amount: 0, once: true });
   const cardData = [
     {
       id: 1,

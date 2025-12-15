@@ -7,7 +7,7 @@ const ServiceCard = ({ title, desc, tag, icon }) => {
     <motion.div
       initial={{ x: -100, opacity: 0 }}
       whileInView={{x : 0, opacity: 1}}
-      viewport={{amount: 0.3}}
+      viewport={{amount: 0.3, once: true}}
       transition={{ duration: 0.5, ease: "easeInOut" }}
       className={`group ${serviceCardStyle}`}
     >

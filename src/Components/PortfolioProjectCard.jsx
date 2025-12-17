@@ -15,10 +15,10 @@ const PortfolioProjectCard = ({
 
   return (
     <motion.div
-      initial={{ x: -100, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 } }
+      initial={{ scale: 0, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 } }
       viewport={{ amount: 0.3, once: true }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.5 }}
       className={projectCardMainStyle}
     >
       <div className="relative overflow-hidden">

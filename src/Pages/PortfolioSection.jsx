@@ -118,7 +118,7 @@ const PortfolioSection = () => {
   );
 
   return (
-    <section ref={portfolioRef} className={sectionBaseStyle}>
+    <section id="portfolio" ref={portfolioRef} className={sectionBaseStyle}>
       <div className="container mx-auto">
         <motion.div
           initial={{ y: "100%", opacity: 0 }}
@@ -161,7 +161,13 @@ const PortfolioSection = () => {
             />
           ))}
         </div>
-        <motion.div className={`mt-5 lg:mt-10 ${serviceCardStyle}`}>
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{y : 0, opacity: 1}}
+          viewport={{amount : 0.3, once : true}}
+          transition={{ duration: 0.5 }}
+          className={`mt-5 lg:mt-10 ${serviceCardStyle}`}
+        >
           <h3 className="capitalize text-xl lg:text-2xl font-bold font-serif">
             Ready to start your next project?
           </h3>
@@ -169,7 +175,7 @@ const PortfolioSection = () => {
             Let's work together to bring your digital vision to life
           </p>
           <div>
-            <button className={`${primaryBtn} rounded-xl! mr-5`}>
+            <button className={`${primaryBtn} rounded-xl! mr-5 mb-5`}>
               Start a Project
             </button>
             <button className={`${primaryBtn} rounded-xl! mr-5`}>

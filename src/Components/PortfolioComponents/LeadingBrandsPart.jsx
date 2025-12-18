@@ -2,6 +2,7 @@ import React from "react";
 import img from "../../assets/leadingBrand.png";
 import { h2Style } from "../../Style/ComponentsStyle";
 import { Check } from "lucide-react";
+import { motion } from "motion/react";
 
 const LeadingBrandsPart = () => {
   const listData = [
@@ -26,10 +27,20 @@ const LeadingBrandsPart = () => {
   ];
   return (
     <div className="flex gap-10 gap-y-10 container mx-auto">
-      <div className="w-1/2">
+      <motion.div
+        initial={{ opacity: 0, x: -100 }}
+        whileInView={{opacity: 1, x: 0}}
+        transition={{ duration: 0.5 }}
+        viewport={{amount: 0.3, once: true}}
+        className="w-1/2">
         <img src={img} alt="Leading brand" className="w-full" />
-      </div>
-      <div className="w-1/2">
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        whileInView={{opacity: 1, x: 0}}
+        transition={{ duration: 0.5 }}
+        viewport={{amount: 0.3, once: true}}
+        className="w-1/2">
         <h2 className={h2Style}>Why Leading Brands Choose Us</h2>
         <p className="text-gray-400 text-lg">
           Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
@@ -48,7 +59,7 @@ const LeadingBrandsPart = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </motion.div>
     </div>
   );
 };

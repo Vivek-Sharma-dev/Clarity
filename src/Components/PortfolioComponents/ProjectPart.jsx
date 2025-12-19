@@ -1,17 +1,17 @@
 import PortfolioProjectCard from "../PortfolioProjectCard";
-import { motion,AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
   h2Style,
   primaryBtn,
   projectBtnActive,
   projectBtnBase,
   serviceCardStyle,
-} from '../../Style/ComponentsStyle';
+} from "../../Style/ComponentsStyle";
 import ProjectsCarousel from "../ProjectsCarousel";
+import { useRef } from "react";
 
 const ProjectPart = ({
   filteredProjects,
-  isInView,
   btnTitles,
   isActive,
   setIsActive,
@@ -22,9 +22,12 @@ const ProjectPart = ({
   isViewerOpen,
   openViewer,
 }) => {
+  const isMobile = window.innerWidth <= 768;
+  const projectRef = useRef(null);
+  const isInView = useInView(projectRef, { once: true, amount:isMobile?  0.1 : 0.3 });
   return (
     <>
-      <div className="container mx-auto">
+      <div ref={projectRef} className="container mx-auto">
         <motion.div
           initial={{ y: "100%", opacity: 0 }}
           animate={isInView ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }}
@@ -37,13 +40,18 @@ const ProjectPart = ({
             consectetur velit
           </p>
         </motion.div>
-        <div className="my-5 lg:my-10">
+        <motion.div
+          animate={
+            isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }
+          }
+          transition={{ duration: 0.5 }}
+          className="my-5 lg:my-10"
+        >
           <div className="flex gap-5 lg:gap-10 justify-center flex-wrap">
             {btnTitles.map((title, index) => (
               <motion.button
-                initial={{ scale: 0, opacity: 0 }}
                 animate={
-                  isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }
+                  isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 1 }
                 }
                 transition={{ duration: 0.5 }}
                 key={index}
@@ -56,7 +64,7 @@ const ProjectPart = ({
               </motion.button>
             ))}
           </div>
-        </div>
+        </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 gap-y-5">
           {filteredProjects.map((project, idx) => (
             <PortfolioProjectCard

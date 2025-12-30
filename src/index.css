@@ -5,3 +5,15 @@
   --secondary-color: #524dd3;
   --nav-bg : #1b1933;
 }
+
+.swiper-wrapper {
+  align-items: stretch !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: white !important;
+  opacity: .5;
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--secondary-color) !important;
+}

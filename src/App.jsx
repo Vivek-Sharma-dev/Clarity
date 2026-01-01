@@ -3,6 +3,7 @@ import AboutSection from "./Pages/AboutSection"
 import HeroSection from "./Pages/HeroSection"
 import PortfolioSection from "./Pages/PortfolioSection"
 import ServicesSection from "./Pages/ServicesSection"
+import Team from "./Pages/Team"
 import Testimonial from './Pages/Testimonial';
 
 
@@ -16,6 +17,7 @@ const App = () => {
       <ServicesSection />
       <PortfolioSection />
       <Testimonial />
+      <Team />
     </main>
     </div>
   )

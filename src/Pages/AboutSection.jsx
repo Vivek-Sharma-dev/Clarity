@@ -25,7 +25,7 @@ const AboutSection = () => {
     },
   ];
   return (
-    <motion.section ref={aboutRef} id="about" className="bg-(--primary-color) py-20 overflow-hidden">
+    <motion.section ref={aboutRef} id="about" className="bg-(--primary-color) py-20 overflow-hidden px-3 lg:px-0">
       <div className="flex gap-5 flex-col lg:flex-row container mx-auto gap-y-12 lg:gap-y-0">
         <motion.div animate = {isInView ? {x: 0, opacity: 1} : {x: '-100%', opacity: 0}} transition={{duration: .5}} className="lg:w-2/4 order-1 lg:order-0">
           <h4 className="text-(--secondary-color) uppercase font-bold text-sm font-serif">

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, scrollSpy } from "react-scroll";
+import { Link } from "react-scroll";
 import {
   menuBaseStyle,
   navLinkActive,

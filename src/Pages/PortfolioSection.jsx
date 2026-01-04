@@ -9,7 +9,6 @@ import { useInView } from "motion/react";
 import { sectionBaseStyle } from "../Style/ComponentsStyle";
 import ProjectPart from "../Components/PortfolioComponents/ProjectPart";
 import WhyChooseUsPart from "../Components/PortfolioComponents/WhyChooseUsPart";
-import { Award, ChartLine, Palette } from "lucide-react";
 import LeadingBrandsPart from "../Components/PortfolioComponents/LeadingBrandsPart";
 
 

@@ -6,6 +6,7 @@ import {
   projectBtnActive,
   projectBtnBase,
   serviceCardStyle,
+  transparentBtn,
 } from "../../Style/ComponentsStyle";
 import ProjectsCarousel from "../ProjectsCarousel";
 import { useRef } from "react";
@@ -24,7 +25,10 @@ const ProjectPart = ({
 }) => {
   const isMobile = window.innerWidth <= 768;
   const projectRef = useRef(null);
-  const isInView = useInView(projectRef, { once: true, amount:isMobile?  0.1 : 0.3 });
+  const isInView = useInView(projectRef, {
+    once: true,
+    amount: isMobile ? 0.1 : 0.3,
+  });
   return (
     <>
       <div ref={projectRef} className="container mx-auto">
@@ -91,7 +95,7 @@ const ProjectPart = ({
             <button className={`${primaryBtn} rounded-xl! mr-5 mb-5`}>
               Start a Project
             </button>
-            <button className={`${primaryBtn} rounded-xl! mr-5`}>
+            <button className={`${transparentBtn} rounded-xl! mr-5`}>
               View All Work
             </button>
           </div>

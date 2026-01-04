@@ -3,13 +3,13 @@ import AboutSection from "./Pages/AboutSection"
 import HeroSection from "./Pages/HeroSection"
 import PortfolioSection from "./Pages/PortfolioSection"
 import ServicesSection from "./Pages/ServicesSection"
-import Team from "./Pages/Team"
+import TeamSection from "./Pages/TeamSection"
 import Testimonial from './Pages/Testimonial';
 
 
 const App = () => {
   return (
-    <div className=" px-4 lg:px-0">
+    <div>
     <Header />
     <main className=" text-white ">
       <HeroSection />
@@ -17,7 +17,7 @@ const App = () => {
       <ServicesSection />
       <PortfolioSection />
       <Testimonial />
-      <Team />
+      <TeamSection />
     </main>
     </div>
   )

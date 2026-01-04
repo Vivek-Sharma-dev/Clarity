@@ -1,9 +1,14 @@
 @import "tailwindcss";
 
+*, *::before, *::after {
+  box-sizing: border-box !important;
+}
+
 :root {
   --primary-color: #060820;
   --secondary-color: #524dd3;
   --nav-bg : #1b1933;
+  color-scheme: light;
 }
 
 .swiper-wrapper {

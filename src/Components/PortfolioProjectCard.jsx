@@ -1,6 +1,7 @@
 import { Star, Eye, MoveUpRight } from "lucide-react";
 import { motion } from "motion/react";
-import { projectCardImgHoverStyle, projectCardMainStyle } from "../Style/ComponentsStyle";
+import { projectCardImgClickActiveStyle, projectCardImgClickCloseStyle, projectCardImgHoverStyle, projectCardMainStyle } from "../Style/ComponentsStyle";
+import { useState } from "react";
 const PortfolioProjectCard = ({
   title,
   image,
@@ -12,7 +13,8 @@ const PortfolioProjectCard = ({
   alt,
   onView,
 }) => {
-
+  const laptop = window.innerWidth >= 769;
+  const [open, setOpen] = useState(false);
   return (
     <motion.div
       initial={{ scale: 0, opacity: 0 }}
@@ -20,10 +22,11 @@ const PortfolioProjectCard = ({
       viewport={{ amount: 0.3, once: true }}
       transition={{ duration: 0.5 }}
       className={projectCardMainStyle}
+      onClick={() => setOpen(prev => !prev)}
     >
       <div className="relative overflow-hidden">
         <img src={image} alt={alt} className="w-full" />
-        <div className={projectCardImgHoverStyle}>
+        <div  className={`${laptop? projectCardImgHoverStyle : open ? projectCardImgClickActiveStyle : projectCardImgClickCloseStyle}`}>
           <button
             onClick={onView}
             className="bg-(--primary-color) p-4 rounded-2xl hover:bg-(--secondary-color) hover:-translate-y-2 transition-all duration-300 cursor-pointer"

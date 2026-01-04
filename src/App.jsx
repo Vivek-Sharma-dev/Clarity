@@ -11,7 +11,7 @@ const App = () => {
   return (
     <div>
     <Header />
-    <main className=" text-white ">
+    <main className=" text-white forced-color-adjust-none">
       <HeroSection />
       <AboutSection />
       <ServicesSection />

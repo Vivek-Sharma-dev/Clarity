@@ -8,7 +8,7 @@
   --primary-color: #060820;
   --secondary-color: #524dd3;
   --nav-bg : #1b1933;
-  color-scheme: light;
+  color-scheme: light !important;
 }
 
 .swiper-wrapper {
@@ -16,13 +16,29 @@
 }
 
 .swiper-pagination-bullet {
-  background-color: white !important;
-  opacity: .5;
+  background-color: #f0f0f0 !important;
+  opacity: .3 !important;
   width: 12px !important;
   height: 12px !important;
 }
+
 .swiper-pagination-bullet-active {
   background-color: var(--secondary-color) !important;
   width: 14px !important;
   height: 14px !important;
+  opacity: 1 !important;
+}
+@media (width < 768px) {
+  .swiper-pagination-bullet {
+    background-color: #f0f0f0 !important;
+    opacity: 1 !important;
+    width: 12px !important;
+    height: 12px !important;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: var(--secondary-color) !important;
+    width: 14px !important;
+    height: 14px !important;
+  }
+  
 }

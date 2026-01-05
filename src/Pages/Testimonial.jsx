@@ -7,6 +7,7 @@ import image5 from "../assets/Testimonial/img5.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import TestimonialCard from "../Components/TestimonialCard";
 import { Autoplay, Pagination } from "swiper/modules";
+import { motion } from "motion/react";
 
 const Testimonial = () => {
   const cardData = [
@@ -70,13 +71,19 @@ const Testimonial = () => {
   return (
     <section className={sectionBaseStyle}>
       <div className="container mx-auto">
-        <div className="text-center">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 50, damping: 5 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="text-center"
+        >
           <h2 className={h2Style}>Testimonials</h2>
           <p className="text-gray-500">
             Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
             consectetur velit
           </p>
-        </div>
+        </motion.div>
         <div className="flex ">
           <Swiper
             modules={[Autoplay, Pagination]}

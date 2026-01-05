@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { BsGithub, BsLinkedin, BsTwitterX } from "react-icons/bs";
 import { FaDiscord } from "react-icons/fa";
+import { motion } from "motion/react";
 
 const ContactSection = () => {
   const isMobile = window.innerWidth <= 768;
@@ -65,15 +66,27 @@ const ContactSection = () => {
   return (
     <section id="contact" className={sectionBaseStyle}>
       <div className="container mx-auto">
-        <div className="text-center">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 50, damping: 5 }}
+          viewport={{ once: true, amount: 0.2 }}
+          className="text-center"
+        >
           <h2 className={h2Style}>Contact</h2>
           <p className="text-gray-400">
             Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
             consectetur velit
           </p>
-        </div>
+        </motion.div>
         <div className="flex flex-col lg:flex-row gap-10 mt-10 ">
-          <div className="p-6 text-center bg-white/3 rounded-2xl border-(--secondary-color) lg:mt-25 border-t-5">
+          <motion.div
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 40, damping: 6 }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="p-6 text-center bg-white/3 rounded-2xl border-(--secondary-color) lg:mt-25 border-t-5"
+          >
             <div className="flex items-center justify-center p-2 mb-4">
               <span className="p-2 bg-(--secondary-color) rounded-2xl">
                 <MessageCircleMore
@@ -134,7 +147,7 @@ const ContactSection = () => {
                 />
               </button>
             </form>
-          </div>
+          </motion.div>
 
           <div>
             <h2 className={h2Style}>Ready to Transform Your Ideas?</h2>
@@ -191,8 +204,8 @@ const ContactSection = () => {
               <div className="flex justify-center gap-2 mt-5">
                 {socialLinks.map((link, idx) => (
                   <a
-                  key={idx}
-                  onClick={(e) => !link.status && e.preventDefault()}
+                    key={idx}
+                    onClick={(e) => !link.status && e.preventDefault()}
                     href={link.link}
                     target="_blank"
                     rel="noreferrer"
@@ -201,7 +214,6 @@ const ContactSection = () => {
                     {link.icon}
                   </a>
                 ))}
-               
               </div>
             </div>
           </div>

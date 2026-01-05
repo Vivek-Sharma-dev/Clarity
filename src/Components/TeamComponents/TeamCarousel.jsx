@@ -8,7 +8,11 @@ import Image3 from "../../assets/TeamSection/TeamCarousel/carousel3.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image4 from "../../assets/TeamSection/TeamCarousel/carousel4.png";
 import { Autoplay, Pagination } from "swiper/modules";
-import { primaryBtn, serviceCardStyle, transparentBtn } from "../../Style/ComponentsStyle";
+import {
+  primaryBtn,
+  serviceCardStyle,
+  transparentBtn,
+} from "../../Style/ComponentsStyle";
 import { motion } from "motion/react";
 
 const TeamCarousel = () => {
@@ -84,10 +88,22 @@ const TeamCarousel = () => {
   ];
 
   return (
-    <div className="">
-      <h2 className="text-center text-2xl lg:text-3xl my-5 ">
+    <div
+      initial={{ y: 100, opacity: 0 }}
+      whileInView={{ y: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 50, damping: 5 }}
+      viewport={{ once: true, amount: 0.2 }}
+      className="text-center"
+    >
+      <motion.h2
+        initial={{ y: 100, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 50, damping: 5 }}
+        viewport={{ once: true, amount: 0.2 }}
+        className="text-2xl lg:text-3xl my-5 font-medium"
+      >
         Leadership Team
-      </h2>
+      </motion.h2>
       <Swiper
         speed={1800}
         modules={[Autoplay, Pagination]}
@@ -129,7 +145,7 @@ const TeamCarousel = () => {
           className={`mt-5 mx-2 lg:mx-0 lg:mt-10 ${serviceCardStyle} bg-blue-800/5! dark:bg-blue-800/5! border-blue-800/40 border-[.1px] translate-y-0! w-full lg:w-2/3`}
         >
           <span className="text-(--secondary-color) p-4 bg-(--secondary-color)/20 rounded-2xl inline-block">
-            <BsRocketTakeoff size={30}/>
+            <BsRocketTakeoff size={30} />
           </span>
           <h3 className="capitalize text-xl lg:text-2xl font-bold">
             Ready to Join Our mission?
@@ -143,7 +159,9 @@ const TeamCarousel = () => {
             <button className={`${primaryBtn} w-full lg:w-auto rounded-xl!`}>
               View Open Roles
             </button>
-            <button className={`${transparentBtn} w-full lg:w-auto rounded-xl!`}>
+            <button
+              className={`${transparentBtn} w-full lg:w-auto rounded-xl!`}
+            >
               Learn Our Culture
             </button>
           </div>

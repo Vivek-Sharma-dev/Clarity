@@ -33,10 +33,10 @@ const LeadingBrandsPart = () => {
   return (
     <div className="flex flex-col lg:flex-row gap-10 gap-y-6 mt-5 container mx-auto">
       <motion.div
-        initial={{ opacity: 0, x: -100 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ amount: isMobile ? 0.1 : 0.3, once: true }}
+        initial={{ x: -100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ type: "spring", stiffness: 40, damping: 6 }}
+        viewport={{ once: true, amount: 0.2 }}
         className="lg:w-1/2"
       >
         <img src={img} alt="Leading brand" className="w-full" />
@@ -69,8 +69,14 @@ const LeadingBrandsPart = () => {
           ))}
         </ul>
         <div className="flex flex-wrap gap-5 mt-10">
-          <button className={`${primaryBtn} shadow-none! w-full lg:w-auto py-3`}>Start Your Project</button>
-          <button className={`${transparentBtn} w-full lg:w-auto mb-0! py-3`}>View Portfolio</button>
+          <button
+            className={`${primaryBtn} shadow-none! w-full lg:w-auto py-3`}
+          >
+            Start Your Project
+          </button>
+          <button className={`${transparentBtn} w-full lg:w-auto mb-0! py-3`}>
+            View Portfolio
+          </button>
         </div>
       </motion.div>
     </div>

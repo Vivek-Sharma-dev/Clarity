@@ -14,11 +14,10 @@ import {
   Search,
 } from "lucide-react";
 import { useRef } from "react";
-import { motion, useInView } from "motion/react";
+import { motion } from "motion/react";
 
 const ServicesSection = () => {
   const serviceRef = useRef(null);
-  const isInView = useInView(serviceRef, { amount: 0, once: true });
   const cardData = [
     {
       id: 1,
@@ -61,29 +60,19 @@ const ServicesSection = () => {
   return (
     <section ref={serviceRef} id="services" className={sectionBaseStyle}>
       <div className="container mx-auto ">
-        <div className="text-center">
-          <motion.h2
-            initial={{ y: "100%", opacity: 0 }}
-            animate={
-              isInView ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }
-            }
-            transition={{ duration: 0.5 }}
-            className={h2Style}
-          >
-            Services
-          </motion.h2>
-          <motion.p
-            initial={{ y: "100%", opacity: 0 }}
-            animate={
-              isInView ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }
-            }
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-gray-400"
-          >
+        <motion.div
+          className="text-center"
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ type: "spring", stiffness: 50, damping: 5 }}
+          viewport={{ once: true, amount: 0.2 }}
+        >
+          <h2 className={h2Style}>Services</h2>
+          <p className="text-gray-400">
             Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
             consectetur velit
-          </motion.p>
-        </div>
+          </p>
+        </motion.div>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 container mx-auto gap-y-5 lg:gap-y-10 gap-10 mt-5 lg:my-10">
           {cardData.map((card) => (
             <ServiceCard
@@ -97,8 +86,8 @@ const ServicesSection = () => {
         </div>
         <motion.div
           initial={{ x: -100, opacity: 0 }}
-          whileInView={{x: 0, opacity: 1}}
-          viewport={{amount: 0.3, once: true}}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ amount: 0.3, once: true }}
           transition={{ duration: 0.5 }}
           className={`mt-5 ${serviceCardStyle}`}
         >

@@ -1,3 +1,4 @@
+import Footer from "./Components/Footer/Footer"
 import Header from "./Components/Header/Header"
 import AboutSection from "./Pages/AboutSection"
 import ContactSection from "./Pages/ContactSection"
@@ -20,6 +21,7 @@ const App = () => {
       <Testimonial />
       <TeamSection />
       <ContactSection />
+      <Footer />
     </main>
     </div>
   )

@@ -57,6 +57,25 @@ const ServicesSection = () => {
       icon: <Search size={40} />,
     },
   ];
+
+  const servicesContainerVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const servicesVariant = {
+    hidden: { y: 50, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5, type: "spring", stiffness: 50, damping: 5 },
+    },
+  };
   return (
     <section ref={serviceRef} id="services" className={sectionBaseStyle}>
       <div className="container mx-auto ">
@@ -73,17 +92,24 @@ const ServicesSection = () => {
             consectetur velit
           </p>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 container mx-auto gap-y-5 lg:gap-y-10 gap-10 mt-5 lg:my-10">
+        <motion.div
+          variants={servicesContainerVariant}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 container mx-auto gap-y-5 lg:gap-y-10 gap-10 mt-5 lg:my-10"
+        >
           {cardData.map((card) => (
-            <ServiceCard
-              key={card.id}
-              title={card.title}
-              desc={card.desc}
-              tag={card.tag}
-              icon={card.icon}
-            />
+            <motion.div key={card.id} variants={servicesVariant}>
+              <ServiceCard
+                title={card.title}
+                desc={card.desc}
+                tag={card.tag}
+                icon={card.icon}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
         <motion.div
           initial={{ x: -100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}

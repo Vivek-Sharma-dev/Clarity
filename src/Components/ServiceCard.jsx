@@ -1,16 +1,9 @@
 import { MoveRight } from "lucide-react";
-import { motion } from "motion/react";
 import { serviceCardStyle } from "../Style/ComponentsStyle";
 
 const ServiceCard = ({ title, desc, tag, icon }) => {
   return (
-    <motion.div
-      initial={{ x: -100, opacity: 0 }}
-      whileInView={{x : 0, opacity: 1}}
-      viewport={{amount: 0.3, once: true}}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
-      className={`group ${serviceCardStyle}`}
-    >
+    <div className={`group ${serviceCardStyle}`}>
       {tag && (
         <span className="absolute right-0 -top-2 bg-[linear-gradient(135deg,rgb(255,107,107),rgb(255,142,83))] py-1 px-3 font-bold  rounded-full">
           {tag ? tag : null}
@@ -33,7 +26,7 @@ const ServiceCard = ({ title, desc, tag, icon }) => {
           <MoveRight />
         </span>
       </a>
-    </motion.div>
+    </div>
   );
 };
 

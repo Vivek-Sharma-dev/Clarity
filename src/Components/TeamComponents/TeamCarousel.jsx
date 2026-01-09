@@ -88,7 +88,7 @@ const TeamCarousel = () => {
   ];
 
   return (
-    <div
+    <motion.div
       initial={{ y: 100, opacity: 0 }}
       whileInView={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 50, damping: 5 }}
@@ -167,7 +167,7 @@ const TeamCarousel = () => {
           </div>
         </div>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

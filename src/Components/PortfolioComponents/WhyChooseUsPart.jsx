@@ -8,7 +8,7 @@ const WhyChooseUsPart = () => {
     {
       id: 1,
       title: "Creative Excellence",
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam.",
+      desc: "Merging artistic vision with functional design to create interfaces that are beautiful, intuitive, and memorable.",
       number: "95",
       bottomText: "% Client Satisfaction",
       icon: <Palette size={40} />,
@@ -16,7 +16,7 @@ const WhyChooseUsPart = () => {
     {
       id: 2,
       title: "Proven  Result",
-      desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit.",
+      desc: "Our data-driven approach ensures that every project achieves its business goals, from speed to conversion.",
       number: "200",
       bottomText: "% ROI Increase",
       icon: <ChartLine size={40} />,
@@ -24,9 +24,9 @@ const WhyChooseUsPart = () => {
     {
       id: 3,
       title: "Export Team",
-      desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum sed ut perspiciatis unde omnis.",
+      desc: "A dedicated team of developers and designers committed to using the latest tech stacks for cutting-edge solutions.",
       number: "50",
-      bottomText: "+ Awards won",
+      bottomText: "+ Project Delivered",
       icon: <Award size={40} fill="currentColor" />,
     },
   ];
@@ -40,24 +40,31 @@ const WhyChooseUsPart = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="text-center"
         >
-          <h2 className={h2Style}>Why Us</h2>
-          <p className="text-gray-500 text-lg">
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
+          <h2 className={h2Style}>Why Choose Us</h2>
+          <p className="text-gray-400 text-lg">
+            We don't just build websites; we create digital experiences that
+            drive growth and deliver measurable impact.
           </p>
         </motion.div>
-        <div className="flex flex-col lg:flex-row gap-5 mt-5 lg:mt-10">
-          {cardData.map((card) => (
-            <ChooseCard
-              key={card.id}
-              title={card.title}
-              desc={card.desc}
-              number={card.number}
-              bottomText={card.bottomText}
-              icon={card.icon}
-            />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          className="flex flex-col lg:flex-row gap-5 mt-5 lg:mt-10"
+        >
+          {cardData.map((card, idx) => (
+            <motion.div key={card.id}>
+              <ChooseCard
+                index={idx}
+                key={card.id}
+                title={card.title}
+                desc={card.desc}
+                number={card.number}
+                bottomText={card.bottomText}
+                icon={card.icon}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -25,7 +25,7 @@ const Footer = () => {
     },
   ];
   return (
-    <footer className="bg-black text-gray-500 px-3 lg:px-0">
+    <footer className="bg-black text-gray-400 px-3 lg:px-0">
       {/* Top Footer */}
       <div className=" container mx-auto py-10 flex flex-col lg:flex-row justify-between gap-y-5">
         {/* Column 1 (Bigger) */}

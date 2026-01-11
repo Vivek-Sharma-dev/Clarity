@@ -4,18 +4,19 @@ import {
   h2Style,
   primaryBtn,
   projectBtnActive,
+  projectBtnActiveAnimation,
   projectBtnBase,
   serviceCardStyle,
   transparentBtn,
 } from "../../Style/ComponentsStyle";
 import ProjectsCarousel from "../ProjectsCarousel";
 import { useRef, useState } from "react";
-import image1 from "../../assets/PortfolioSection/Image1.png";
-import image2 from "../../assets/PortfolioSection/Image2.png";
-import image3 from "../../assets/PortfolioSection/Image3.png";
-import image4 from "../../assets/PortfolioSection/Image4.png";
-import image5 from "../../assets/PortfolioSection/Image5.png";
-import image6 from "../../assets/PortfolioSection/Image6.png";
+import image1 from "../../assets/PortfolioSection/Image1.webp";
+import image2 from "../../assets/PortfolioSection/Image2.webp";
+import image5 from "../../assets/PortfolioSection/Image5.webp";
+import image6 from "../../assets/PortfolioSection/Image6.webp";
+import image3 from "../../assets/PortfolioSection/Image3.webp";
+import image4 from "../../assets/PortfolioSection/Image4.webp";
 
 const ProjectPart = () => {
   const isMobile = window.innerWidth <= 768;
@@ -55,81 +56,81 @@ const ProjectPart = () => {
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.5, type: "spring", stiffness: 80, damping: 7 },
+      transition: { type: "spring", stiffness: 80, damping: 7 },
     },
   };
   const projects = [
-    {
-      id: 2,
-      title: "E-commerce Platform",
-      category: "Web Design",
-      image: image5,
-      desc: "Donec rutrum congue leo eget malesuada. Vivamus magna justo, lacinia eget consectetur sed.",
-      tag: "E-commerce",
-      rating: "4.6",
-      link: "#",
-      technologies: ["Shopify", "React", "api"],
-      alt: "cloths hanging on the wall",
-    },
     {
       id: 1,
       title: "Digital Innovation Platform",
       category: "Web Design",
       image: image1,
-      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.",
-      tag: "web design",
+      desc: "A high-performance landing page designed for tech startups to showcase their digital products with a seamless user experience.",
+      tag: "Web Design",
       rating: "4.8",
       link: "#",
-      technologies: ["React", "Node.js", "AWX"],
-      alt: "Thread and scissor on the book",
+      technologies: ["React", "Node.js", "Tailwind"],
+      alt: "Modern digital workspace showcasing innovation tools",
     },
     {
-      id: 6,
-      title: "SaaS Dashboard Design",
-      category: "UI/UX",
-      image: image4,
-      desc: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
-      tag: "UI/UX",
-      rating: "4.7",
+      id: 2,
+      title: "NexCart - Modern E-commerce",
+      category: "Web Design",
+      image: image2,
+      desc: "A full-featured shopping experience with real-time cart management, dynamic product filtering, and secure checkout integration.",
+      tag: "E-commerce",
+      rating: "4.6",
       link: "#",
-      technologies: ["Figma", "prototyping", "UX"],
-      alt: "Flowers in the flower pot",
+      technologies: ["React", "Redux", "Tailwind"],
+      alt: "Clean e-commerce interface for modern retail",
+    },
+    {
+      id: 3,
+      title: "Smart Productivity App",
+      category: "Mobile Apps",
+      image: image5,
+      desc: "A cross-platform mobile application focused on task automation and time management using intelligent AI-driven reminders.",
+      tag: "Mobile App",
+      rating: "4.9",
+      link: "#",
+      technologies: ["Flutter", "Firebase", "AI"],
+      alt: "User-friendly productivity app interface",
     },
     {
       id: 4,
       title: "Fintech Mobile Solution",
       category: "Mobile Apps",
       image: image6,
-      desc: "Cras ultricies ligula sed magna dictum porta. Proin eget tortor risus. Sed porttitor lectus nibh.",
+      desc: "A secure financial dashboard providing real-time analytics, crypto-wallet integration, and personalized spending insights.",
       tag: "Fintech",
       rating: "4.8",
       link: "#",
-      technologies: ["Swift", "Kotlin", "Blockchain"],
-      alt: "Holding a book",
+      technologies: ["React Native", "Blockchain", "Chart.js"],
+      alt: "Secure financial dashboard for mobile users",
     },
     {
       id: 5,
       title: "Modern Brand Identity",
       category: "Branding",
       image: image3,
-      desc: "Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur arcu erat, accumsan id.",
+      desc: "Complete visual branding and identity system for a creative agency, including logo design, typography, and color palette.",
       tag: "Branding",
       rating: "5.0",
       link: "#",
-      technologies: ["illustrator", "figma", "brand"],
-      alt: "specs, book, pen and lipstick",
+      technologies: ["Illustrator", "Figma", "Branding"],
+      alt: "Professional brand identity and style guide",
     },
     {
-      id: 3,
-      title: "Smart Productivity App",
-      category: "Mobile Apps",
-      image: image2,
-      desc: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
-      tag: "mobile app",
-      rating: "4.9",
+      id: 6,
+      title: "SaaS Dashboard Design",
+      category: "UI/UX",
+      image: image4,
+      desc: "An enterprise-grade analytics dashboard designed for complex data visualization and multi-user management systems.",
+      tag: "UI/UX",
+      rating: "4.7",
       link: "#",
-      technologies: ["flutter", "firebase", "AI"],
-      alt: "Colorful pencils",
+      technologies: ["Figma", "Prototyping", "UX Research"],
+      alt: "Advanced analytics dashboard for SaaS platforms",
     },
   ];
 
@@ -154,8 +155,8 @@ const ProjectPart = () => {
         >
           <h2 className={h2Style}>Portfolio</h2>
           <p className="text-gray-400 lg:text-lg">
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
+            A showcase of our latest digital products, crafted with precision
+            and modern technology to solve real-world problems.
           </p>
         </motion.div>
         <motion.div
@@ -177,12 +178,22 @@ const ProjectPart = () => {
                 variants={btnVariants}
                 transition={{ duration: 0.5 }}
                 key={index}
-                className={
-                  isActive === title ? projectBtnActive : projectBtnBase
-                }
                 onClick={() => setIsActive(title)}
               >
-                {title}
+                <div
+                  className={`relative z-50 ${
+                    isActive === title ? projectBtnActive : projectBtnBase
+                  }`}
+                >
+                  {title}
+                  {isActive === title && (
+                    <motion.span
+                      layoutId="project-btn"
+                      transition={{ ease: "easeOut", duration: 0.5 }}
+                      className={`${projectBtnActiveAnimation}`}
+                    ></motion.span>
+                  )}
+                </div>
               </motion.button>
             ))}
           </motion.div>
@@ -213,21 +224,26 @@ const ProjectPart = () => {
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ amount: 0.3, once: true }}
           transition={{ duration: 0.5 }}
-          className={`mt-5 lg:mt-10 ${serviceCardStyle}`}
         >
-          <h3 className="capitalize text-xl lg:text-2xl font-bold font-serif">
-            Ready to start your next project?
-          </h3>
-          <p className="text-gray-400 lg:text-lg">
-            Let's work together to bring your digital vision to life
-          </p>
-          <div>
-            <button className={`${primaryBtn} rounded-xl! mr-5 mb-5`}>
-              Start a Project
-            </button>
-            <button className={`${transparentBtn} rounded-xl! mr-5`}>
-              View All Work
-            </button>
+          <div className={`mt-5 lg:mt-10 ${serviceCardStyle}`}>
+            <h3 className="capitalize text-xl lg:text-2xl font-bold font-serif">
+              Have a Vision? Let’s Build It.
+            </h3>
+            <p className="text-gray-400 lg:text-lg">
+              I’m currently available for freelance work and full-time
+              opportunities. Let’s discuss how I can help your project.
+            </p>
+            <div>
+              <button className={`${primaryBtn} rounded-xl! mr-5 mb-5`}>
+                Get in Touch
+              </button>
+              <a
+                href="https://github.com/Vivek-Sharma-dev"
+                className={`${transparentBtn} rounded-xl! mr-5`}
+              >
+                GitHub Profile
+              </a>
+            </div>
           </div>
         </motion.div>
       </div>

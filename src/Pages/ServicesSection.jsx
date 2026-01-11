@@ -22,38 +22,38 @@ const ServicesSection = () => {
     {
       id: 1,
       title: "Brand identity design",
-      desc: "Donec vel sapien augue integer urna vel turpis cursus porta aliquam ligula eget ultricies.",
+      desc: "Crafting unique visual identities that resonate with your audience and build lasting brand loyalty",
       tag: "Most Popular",
       icon: <Palette size={40} />,
     },
     {
       id: 2,
       title: "UI/UX Design",
-      desc: "Mauris blandit aliquet elit eget tincidunt nibh pulvinar rutrum tellus pellentesque eu.",
+      desc: "Creating user-centric interfaces that are not only beautiful but also intuitive and easy to navigate",
       icon: <PanelsTopLeft size={40} />,
     },
     {
       id: 3,
       title: "Web Development",
-      desc: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.",
+      desc: "Building fast, secure, and scalable websites using modern technologies like React and Tailwind CSS",
       icon: <CodeXml size={40} />,
     },
     {
       id: 4,
       title: "Mobile App Design",
-      desc: "Nulla facilisi morbi tempus iaculis urna id volutpat lacus laoreet non curabitur gravida.",
+      desc: "Designing seamless mobile experiences that work perfectly across all devices and screen sizes.",
       icon: <Smartphone size={40} />,
     },
     {
       id: 5,
       title: "Digital Marketing",
-      desc: "Sed porttitor lectus nibh donec sollicitudin molestie malesuada proin eget tortor risus.",
+      desc: "Strategic marketing campaigns designed to increase your online visibility and drive meaningful engagement.",
       icon: <Megaphone size={40} />,
     },
     {
       id: 6,
       title: "SEO Optimization",
-      desc: "Curabitur arcu erat accumsan id imperdiet et porttitor at sem pellentesque habitant morbi.",
+      desc: "Optimizing your website to rank higher on search engines and attract organic, high-quality traffic.",
       icon: <Search size={40} />,
     },
   ];
@@ -73,7 +73,7 @@ const ServicesSection = () => {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.5, type: "spring", stiffness: 50, damping: 5 },
+      transition: { type: "spring", stiffness: 50, damping: 5 },
     },
   };
   return (
@@ -86,10 +86,10 @@ const ServicesSection = () => {
           transition={{ type: "spring", stiffness: 50, damping: 5 }}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className={h2Style}>Services</h2>
+          <h2 className={h2Style}>Expertise We Offer</h2>
           <p className="text-gray-400">
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
+            We deliver high-quality digital solutions tailored to your business
+            needs, ensuring a competitive edge in the modern market.
           </p>
         </motion.div>
         <motion.div
@@ -99,9 +99,10 @@ const ServicesSection = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 container mx-auto gap-y-5 lg:gap-y-10 gap-10 mt-5 lg:my-10"
         >
-          {cardData.map((card) => (
+          {cardData.map((card, idx) => (
             <motion.div key={card.id} variants={servicesVariant}>
               <ServiceCard
+                index={idx}
                 title={card.title}
                 desc={card.desc}
                 tag={card.tag}
@@ -111,19 +112,21 @@ const ServicesSection = () => {
           ))}
         </motion.div>
         <motion.div
-          initial={{ x: -100, opacity: 0 }}
-          whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ amount: 0.3, once: true }}
-          transition={{ duration: 0.5 }}
-          className={`mt-5 ${serviceCardStyle}`}
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ amount: 0.2, once: true }}
+          transition={{ type: "spring", stiffness: 80, damping: 8 }}
         >
-          <h3 className="capitalize text-xl lg:text-3xl font-bold font-serif">
-            ready to transform your digital presence?
-          </h3>
-          <p className="text-gray-400 lg:text-lg">
-            Lets's discuss your project and create something amazing together
-          </p>
-          <button className={primaryBtn}>Get Started Today</button>
+          <div className={`mt-5 ${serviceCardStyle}`}>
+            <h3 className="capitalize text-xl lg:text-3xl font-bold font-serif">
+              Take Your Business To The Next Level
+            </h3>
+            <p className="text-gray-400 lg:text-lg">
+              Ready to start your digital transformation? Let’s build something
+              incredible together
+            </p>
+            <button className={primaryBtn}>Contact Us Today</button>
+          </div>
         </motion.div>
       </div>
     </section>

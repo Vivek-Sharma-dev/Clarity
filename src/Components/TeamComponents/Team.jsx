@@ -66,10 +66,10 @@ const Team = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="text-center"
         >
-          <h2 className={h2Style}>Team</h2>
+          <h2 className={h2Style}>Meet Our Exceptional Team</h2>
           <p className="text-gray-500 font-medium">
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
+            A diverse group of innovators, designers, and engineers dedicated to
+            building the next generation of digital products.
           </p>
         </motion.div>
         <div className="flex flex-col lg:flex-row gap-5 mt-5 lg:mt-10">
@@ -84,9 +84,7 @@ const Team = () => {
               Meet Our Exceptional Team
             </h3>
             <p className="text-gray-500 font-medium">
-              Temporibus autem quibusdam et aut officiis debitis aut rerum
-              necessitatibus saepe eveniet ut et voluptates repudiandae sint et
-              molestiae non recusandae.
+              Our strength lies in our collaboration. We bring together experts from different fields to ensure every project is handled with technical precision and creative flair. From concept to deployment, we work as one to deliver excellence.
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-10">
               <div className="flex flex-col text-center">
@@ -117,7 +115,7 @@ const Team = () => {
           </motion.div>
           <div className="lg:w-1/2 mt-5 lg:mt-0">
             <div className="grid justify-center md:grid-cols-2 gap-5">
-              {teamMembers.map((member) => (
+              {teamMembers.map((member, idx) => (
                 <TeamCard
                   key={member.teamId}
                   image={member.img}
@@ -125,6 +123,7 @@ const Team = () => {
                   role={member.role}
                   offset={member.offset}
                   links={member.links}
+                  index={idx}
                 />
               ))}
             </div>

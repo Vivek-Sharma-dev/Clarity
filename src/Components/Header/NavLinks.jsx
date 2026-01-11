@@ -56,6 +56,7 @@ const NavLinks = () => {
   return (
     <nav ref={menuRef} className="order-10 lg:order-0 ml-3 lg:ml-0">
       <button
+        aria-label="Menu Button"
         onClick={() => setIsMenuActive(!isMenuActive)}
         className="text-white lg:hidden"
       >
@@ -81,6 +82,7 @@ const NavLinks = () => {
                 onClick={() => setIsMenuActive(false)}
               >
                 <span
+                aria-label={link.label}
                   className={active === link.id ? navLinkActive : navLinkBase}
                 >
                   {link.label}

@@ -1,7 +1,7 @@
 import React from "react";
 import {
+  BtnActive,
   h2Style,
-  projectBtnActive,
   sectionBaseStyle,
 } from "../Style/ComponentsStyle";
 import {
@@ -16,13 +16,39 @@ import { FaDiscord } from "react-icons/fa";
 import { motion } from "motion/react";
 
 const ContactSection = () => {
+  const socialParentVariant = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        delayChildren: 0.3,
+        staggerChildren: 0.25,
+      },
+    },
+  };
+
+  const socialChildVariant = {
+    hidden: {
+      opacity: 0,
+      x: 1000,
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        ease: "easeOut",
+      },
+    },
+  };
   const isMobile = window.innerWidth <= 768;
   const contactDetails = [
     {
       id: 1,
       title: "Email Us",
       desc: "Response in 2-4 hours",
-      link: "hello@.com@productdemo.com",
+      link: "hello.com@productdemo.com",
       icon: <MailCheck size={isMobile ? 25 : 35} />,
     },
     {
@@ -137,7 +163,7 @@ const ContactSection = () => {
 
               <button
                 type="submit"
-                className={`${projectBtnActive} hover:-translate-y-1 duration-300 transition-all group after:w-20! after:bg-white/40!  w-full rounded-2xl! flex gap-3 items-center justify-center`}
+                className={`${BtnActive} hover:-translate-y-1 duration-300 transition-all group after:w-20! after:bg-white/40!  w-full rounded-2xl! flex gap-3 items-center justify-center`}
               >
                 Send Message
                 <Send
@@ -149,7 +175,12 @@ const ContactSection = () => {
             </form>
           </motion.div>
 
-          <div>
+          <motion.div
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ type: "spring", stiffness: 40, damping: 7 }}
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <h2 className={h2Style}>Ready to Transform Your Ideas?</h2>
             <p className="text-gray-400 font-medium">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -157,7 +188,11 @@ const ContactSection = () => {
               quae ab illo inventore.
             </p>
             {contactDetails.map((contact) => (
-              <div
+              <motion.div
+                initial={{ y: 100, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ type: "spring", stiffness: 40, damping: 7 }}
+                viewport={{ once: true, amount: 0.2 }}
                 key={contact.id}
                 className="flex items-center gap-5 my-5 group hover:border hover:border-(--secondary-color)/40 rounded-2xl p-5 bg-white/3"
               >
@@ -171,9 +206,15 @@ const ContactSection = () => {
                     {contact.desc}
                   </span>
                 </div>
-              </div>
+              </motion.div>
             ))}
-            <div className="flex gap-5 bg-blue-600/10 rounded-2xl px-5 py-8">
+            <motion.div
+              initial={{ y: 100, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 40, damping: 7 }}
+              viewport={{ once: true, amount: 0.2 }}
+              className="flex gap-5 bg-blue-600/10 rounded-2xl px-5 py-8"
+            >
               <div className="flex flex-col gap-1 text-center">
                 <span className="text-(--secondary-color) text-2xl font-bold">
                   24h
@@ -198,12 +239,19 @@ const ContactSection = () => {
                   Project Delivered
                 </span>
               </div>
-            </div>
-            <div className="text-center mt-5 mb-8">
+            </motion.div>
+            <motion.div className="text-center mt-5 mb-8">
               <span>Connect With Us</span>
-              <div className="flex justify-center gap-2 mt-5">
+              <motion.div
+                variants={socialParentVariant}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                className="flex justify-center gap-2 mt-5"
+              >
                 {socialLinks.map((link, idx) => (
-                  <a
+                  <motion.a
+                    variants={socialChildVariant}
                     key={idx}
                     onClick={(e) => !link.status && e.preventDefault()}
                     href={link.link}
@@ -212,11 +260,11 @@ const ContactSection = () => {
                     className="bg-white/3 hover:-translate-y-1 hover:bg-(--secondary-color) hover:text-white transition-all duration-300 p-3 rounded-2xl text-(--secondary-color)"
                   >
                     {link.icon}
-                  </a>
+                  </motion.a>
                 ))}
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -41,20 +41,20 @@ const PortfolioProjectCard = ({
   };
   return (
     <motion.div
-      layout
       variants={cardVariants}
       custom={index}
       initial="hidden"
       whileInView="visible"
       exit={{opacity : 0, y : 100, transition : {duration : .5}}}
       viewport={{ once: true, amount: isLaptop ? 0.3 : 0.2 }}
+      className="px-1 "
     >
       <div
-        className={projectCardMainStyle}
+        className={`${projectCardMainStyle} `}
         onClick={() => setOpen((prev) => !prev)}
       >
         <div className="relative overflow-hidden">
-          <img src={image} alt={alt} className="w-full" />
+          <img src={image} alt={alt} className="w-full h-[30vh] object-cover" />
           <div
             className={`${
               isLaptop

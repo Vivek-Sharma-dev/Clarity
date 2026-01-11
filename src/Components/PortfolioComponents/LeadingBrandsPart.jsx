@@ -14,19 +14,19 @@ const LeadingBrandsPart = () => {
     {
       id: 1,
       heading: "Strategic Thinking",
-      desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt.",
+      desc: "We align every technical decision with your long-term business strategy to ensure sustainable growth.",
       icon: <Check size={17} />,
     },
     {
       id: 2,
       heading: "Data-Driven Approach",
-      desc: "Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.",
+      desc: "Leveraging advanced analytics and user behavior insights to build products that people actually love to use.",
       icon: <Check size={17} />,
     },
     {
       id: 3,
       heading: "24/7 Support",
-      desc: "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit.",
+      desc: "Our partnership doesn't end at deployment. We provide ongoing maintenance and priority support to keep you ahead.",
       icon: <Check size={17} />,
     },
   ];
@@ -48,10 +48,9 @@ const LeadingBrandsPart = () => {
         viewport={{ amount: isMobile ? 0.1 : 0.3, once: true }}
         className="lg:w-1/2"
       >
-        <h2 className={h2Style}>Why Leading Brands Choose Us</h2>
+        <h2 className={h2Style}>Empowering Brands with Future-Ready Solutions</h2>
         <p className="text-gray-400 text-lg">
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-          dolore eu fugiat nulla pariatur excepteur sint occaecat.
+         We don't just write code; we architect success. Our methodology is built on transparency, technical precision, and a deep understanding of your business goals.
         </p>
         <ul>
           {listData.map((item) => (

@@ -1,9 +1,29 @@
 import { motion } from "motion/react";
 import Counter from "../Components/Counter";
 import { primaryBtn, transparentBtn } from "../Style/ComponentsStyle";
-import hero from "../assets/hero.png";
+import hero from "../assets/hero.webp";
 
 const HeroSection = () => {
+  const counterDetails = [
+    {
+      id: 1,
+      number: 50,
+      text: "Happy Clients",
+      symb: "+",
+    },
+    {
+      id: 2,
+      number: 99,
+      text: "Success Rate",
+      symb: "%",
+    },
+    {
+      id: 3,
+      number: 3,
+      text: "Years of Experience",
+      symb: "+",
+    },
+  ]
   return (
     <section
       id="home"
@@ -17,22 +37,27 @@ const HeroSection = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="w-full lg:w-1/2"
         >
-          <h1 className="font-medium text-2xl lg:text-5xl md:text-3xl font-serif ">
-            Transform Your Digital Presence
+          <h1 className="text-transparent bg-clip-text bg-linear-to-r from-(--secondary-color) to-blue-400  font-medium text-2xl lg:text-5xl md:text-3xl font-serif ">
+            Elevating Brands with Modern Digital Solutions
           </h1>
           <p className="text-gray-400 my-5 lg:my-10  font-medium md:text-xl">
-            We create innovative digital solutions that drive growth and elevate
-            your brand. From web development to digital marketing, we're your
-            partners in digital transformation.
+            We combine cutting-edge technology with creative design to help your
+            business scale in the digital era. From React apps to SEO-driven
+            marketing
           </p>
           <div className="flex gap-5 items-center my-5">
-            <button className={primaryBtn}>Get Started</button>
-            <button className={transparentBtn}>Our Work</button>
+            <button aria-label="Get Started Button" className={primaryBtn}>
+              Get Started
+            </button>
+            <button aria-label="Our Work Button" className={transparentBtn}>
+              Our Work
+            </button>
           </div>
           <div className="flex justify-between lg:gap-7">
-            <Counter end={150} title="Projects Completed" />
-            <Counter end={95} title="Clients Satisfaction" />
-            <Counter end={24} title="Team Members" />
+            {counterDetails.map((item) => (
+              <Counter key={item.id} end={item.number} title={item.text} symb={item.symb} />
+              
+            ))}
           </div>
         </motion.div>
         <motion.div
@@ -41,7 +66,12 @@ const HeroSection = () => {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="w-full lg:w-1/2"
         >
-          <img src={hero} alt="hero image" className="" />
+          <img
+            src={hero}
+            alt="Artificial Intelligence Cube Innovation"
+            className="rounded-2xl"
+            loading="eager"
+          />
         </motion.div>
       </div>
     </section>

@@ -121,7 +121,7 @@ const TeamCarousel = () => {
         }}
         className=""
       >
-        {teamMembers.map((member) => (
+        {teamMembers.map((member, idx) => (
           <SwiperSlide key={member.id} className="pb-10">
             <TeamCarouselCard
               links={member.links}
@@ -129,16 +129,17 @@ const TeamCarousel = () => {
               role={member.role}
               desc={member.desc}
               image={member.image}
+              index={idx}
             />
           </SwiperSlide>
         ))}
       </Swiper>
 
       <motion.div
-        initial={{ y: 100, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
+        initial={{ y: 100, scale: 0, opacity: 0 }}
+        whileInView={{ y: 0, scale: 1, opacity: 1 }}
         viewport={{ amount: 0.3, once: true }}
-        transition={{ duration: 0.5 }}
+        transition={{ type: "spring", stiffness: 50, damping: 8 }}
         className="flex justify-center"
       >
         <div

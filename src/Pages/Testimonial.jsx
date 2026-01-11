@@ -14,10 +14,10 @@ const Testimonial = () => {
     {
       id: 1,
       image: image1,
-      desc: "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse.",
+      desc: "Clarity turned our vision into reality. Their UX research helped us identify key pain points we hadn't even considered, resulting in a much more intuitive product.",
       name: "Amanda Rodriguez",
       pos: "UX Researcher",
-      alt: "Amanda Rodriguez",
+      alt: "Amanda Rodriguez - UX Expert",
       verification: "Verified",
       rating: 5,
       tag: "UserFirst",
@@ -25,22 +25,21 @@ const Testimonial = () => {
     {
       id: 2,
       image: image2,
-      desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit.",
+      desc: "The attention to detail in their design work is incredible. Our new platform not only looks stunning but the user engagement has increased by over 30%.",
       name: "Jenifer Martinez",
       pos: "Product Designer",
-      alt: "Jenifer Martinez",
+      alt: "Jenifer Martinez - Design Lead",
       verification: "Verified",
       rating: 5,
       tag: "TechCrop",
     },
-
     {
       id: 3,
       image: image3,
-      desc: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.",
+      desc: "Working with the engineering team at Clarity was a breeze. They delivered a clean, scalable React architecture that is incredibly easy for our internal team to maintain.",
       name: "Alexander Chen",
       pos: "Frontend Engineer",
-      alt: "Alexander Chen",
+      alt: "Alexander Chen - Software Engineer",
       verification: "Verified",
       rating: 5,
       tag: "InnovativeLab",
@@ -48,10 +47,10 @@ const Testimonial = () => {
     {
       id: 4,
       image: image4,
-      desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.",
+      desc: "The marketing insights and data-driven strategy they provided were instrumental in our successful launch. Highly professional and always on schedule.",
       name: "Rachel Taylor",
       pos: "Marketing Lead",
-      alt: "Rachel Taylor",
+      alt: "Rachel Taylor - Growth Strategist",
       verification: "Verified",
       rating: 5,
       tag: "GrowthCo",
@@ -59,10 +58,10 @@ const Testimonial = () => {
     {
       id: 5,
       image: image5,
-      desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat non proident.",
+      desc: "From complex API integrations to smooth UI animations, Clarity handles everything with technical precision. They are our go-to partner for all high-end development.",
       name: "Christoper Lee",
       pos: "VP Engineering",
-      alt: "Christoper Lee",
+      alt: "Christoper Lee - Engineering Leader",
       verification: "Verified",
       rating: 5,
       tag: "DevStream",
@@ -78,10 +77,10 @@ const Testimonial = () => {
           viewport={{ once: true, amount: 0.2 }}
           className="text-center"
         >
-          <h2 className={h2Style}>Testimonials</h2>
-          <p className="text-gray-500">
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit
+          <h2 className={h2Style}>What Our Clients Say</h2>
+          <p className="text-gray-400">
+            Don't just take our word for it. Hear from the leaders and teams
+            we've helped to scale their digital presence.
           </p>
         </motion.div>
         <div className="flex ">
@@ -99,9 +98,9 @@ const Testimonial = () => {
             }}
             className="my-10"
           >
-            {cardData.map((card) => (
-              <SwiperSlide key={card.id} className="pb-16">
-                <TestimonialCard {...card} />
+            {cardData.map((card, idx) => (
+              <SwiperSlide className="pb-16">
+                <TestimonialCard {...card} index={idx} />
               </SwiperSlide>
             ))}
           </Swiper>

@@ -3,10 +3,9 @@ import { h2Style, primaryBtn } from "../Style/ComponentsStyle";
 import { Check } from "lucide-react";
 import about from "../assets/AboutSection/About1.webp";
 import about2 from "../assets/AboutSection/About2.png";
-import { motion, useInView } from "motion/react";
+import { motion } from "motion/react";
 const AboutSection = () => {
   const aboutRef = useRef(null);
-  const isInView = useInView(aboutRef, { amount: 0.2 , once: true});
   const textList = [
     {
       id: 1,
@@ -69,45 +68,47 @@ const AboutSection = () => {
           </ul>
 
           <motion.a
-          href="#"
+            href="#"
             initial={{ scale: 0, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ type: "spring", stiffness: 100, damping: 10 }}
+            transition={{ ease: "easeOut", duration: 0.5 }}
             viewport={{ once: true, amount: 0.2 }}
-            className={`${primaryBtn} mt-5 lg:mt-10 inline-block`}
+            className={`${primaryBtn} mt-5 lg:mt-10 inline-block will-change-transform`}
           >
             Discover More
           </motion.a>
         </motion.div>
         <motion.div
-          animate={isInView ? { x: 0, opacity: 1 } : { x: "100%", opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          initial={{ x: 100, opacity: 0 }}
+          whileInView={{ x: 0, opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="relative lg:w-4/6 ps-8 lg:ps-0"
         >
           <motion.img
-            animate={
-              isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }
-            }
+            initial={{ scale: 0, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 0.7 }}
             src={about}
             alt="Planing on a task with team members"
-            className="border-4 rounded-xl border-gray-500 w-full ml-5"
+            className="border-4 rounded-xl border-gray-500 w-full ml-5 will-change-transform"
           />
           <motion.img
-            animate={
-              isInView ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }
-            }
+            initial={{ y: 100, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 1 }}
             src={about2}
             alt="Celebration with team members"
-            className="absolute -bottom-8 lg:-bottom-5 -left-2 lg:-left-5 border-4 rounded-xl border-gray-500/70 w-40 lg:w-80"
+            className="will-change-transform absolute -bottom-8 lg:-bottom-5 -left-2 lg:-left-5 border-4 rounded-xl border-gray-500/70 w-40 lg:w-80"
           />
           <motion.div
-            animate={
-              isInView ? { x: 1, opacity: 1 } : { x: "100%", opacity: 0 }
-            }
+            initial={{ x: 100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5, delay: 1.2 }}
-            className="flex flex-col lg:flex-row gap-5 absolute -top-25 lg:-top-10 py-5 right-0 bg-(--primary-color)/90 p-3 rounded-xl"
+            className="will-change-transform flex flex-col lg:flex-row gap-5 absolute -top-25 lg:-top-10 py-5 right-0 bg-(--primary-color)/90 p-3 rounded-xl"
           >
             <div className="text-center">
               <span className="text-(--secondary-color) text-2xl lg:text-4xl font-bold">

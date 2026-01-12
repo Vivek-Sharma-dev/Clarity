@@ -1,5 +1,5 @@
 import PortfolioProjectCard from "../PortfolioProjectCard";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   h2Style,
   primaryBtn,
@@ -19,12 +19,8 @@ import image3 from "../../assets/PortfolioSection/Image3.webp";
 import image4 from "../../assets/PortfolioSection/Image4.webp";
 
 const ProjectPart = () => {
-  const isMobile = window.innerWidth <= 768;
   const projectRef = useRef(null);
-  const isInView = useInView(projectRef, {
-    once: true,
-    amount: isMobile ? 0.1 : 0.3,
-  });
+
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [activeProject, setActiveProject] = useState([]);
@@ -160,9 +156,10 @@ const ProjectPart = () => {
           </p>
         </motion.div>
         <motion.div
-          animate={
-            isInView ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }
-          }
+          initial={{ scale: 0, opacity: 0 }}
+          whileInView={{ scale: 1, opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+
           transition={{ duration: 0.5 }}
           className="my-5 lg:my-10"
         >
@@ -200,11 +197,11 @@ const ProjectPart = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 gap-y-5">
-          <AnimatePresence mode="popLayout">
+          <AnimatePresence mode="wait">
             {filteredProjects.map((project, idx) => (
               <motion.div
                 key={project.id}
-                layout
+                
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -247,14 +244,14 @@ const ProjectPart = () => {
           </div>
         </motion.div>
       </div>
-        {isViewerOpen && (
-          <ProjectsCarousel
-            setIsViewerOpen={setIsViewerOpen}
-            setCurrentIndex={setCurrentIndex}
-            activeProject={activeProject}
-            currentIndex={currentIndex}
-          />
-        )}
+      {isViewerOpen && (
+        <ProjectsCarousel
+          setIsViewerOpen={setIsViewerOpen}
+          setCurrentIndex={setCurrentIndex}
+          activeProject={activeProject}
+          currentIndex={currentIndex}
+        />
+      )}
     </>
   );
 };

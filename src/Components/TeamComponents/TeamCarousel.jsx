@@ -2,11 +2,11 @@ import TeamCarouselCard from "./TeamCarouselCard";
 import { TfiEmail } from "react-icons/tfi";
 import { BsLinkedin, BsRocketTakeoff } from "react-icons/bs";
 import { Instagram, Twitter } from "lucide-react";
-import Image1 from "../../assets/TeamSection/TeamCarousel/carousel1.png";
-import Image2 from "../../assets/TeamSection/TeamCarousel/carousel2.png";
-import Image3 from "../../assets/TeamSection/TeamCarousel/carousel3.png";
+import Image1 from "../../assets/TeamSection/carousel/carousel1.webp";
+import Image2 from "../../assets/TeamSection/carousel/carousel2.webp";
+import Image3 from "../../assets/TeamSection/carousel/carousel3.webp";
+import Image4 from "../../assets/TeamSection/carousel/carousel4.webp";
 import { Swiper, SwiperSlide } from "swiper/react";
-import Image4 from "../../assets/TeamSection/TeamCarousel/carousel4.png";
 import { Autoplay, Pagination } from "swiper/modules";
 import {
   primaryBtn,
@@ -16,76 +16,52 @@ import {
 import { motion } from "motion/react";
 
 const TeamCarousel = () => {
-  const teamMembers = [
-    {
-      id: 1,
-      name: "Jennifer walsh",
-      role: "Chief Executive Officer",
-      desc: "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id.",
-      links: [
-        {
-          icon: <TfiEmail />,
-          link: "#",
-        },
-        {
-          icon: <BsLinkedin />,
-          link: "#",
-        },
-      ],
-      image: Image1,
-    },
-    {
-      id: 2,
-      name: "Robert Martinez",
-      role: "Chief Technology officer",
-      desc: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis.",
-      links: [
-        {
-          icon: <TfiEmail />,
-          link: "#",
-        },
-        {
-          icon: <Twitter fill="currentColor" />,
-          link: "#",
-        },
-      ],
-      image: Image2,
-    },
-    {
-      id: 3,
-      name: "Lisa Thompson",
-      role: "Head of Operations",
-      desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      links: [
-        {
-          icon: <TfiEmail />,
-          link: "#",
-        },
-        {
-          icon: <Twitter fill="currentColor" />,
-          link: "#",
-        },
-      ],
-      image: Image3,
-    },
-    {
-      id: 4,
-      name: "Alex Garcia",
-      role: "VP of Marketing",
-      desc: "Lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore.",
-      links: [
-        {
-          icon: <TfiEmail />,
-          link: "#",
-        },
-        {
-          icon: <Instagram />,
-          link: "#",
-        },
-      ],
-      image: Image4,
-    },
-  ];
+const teamMembers = [
+  {
+    id: 1,
+    name: "Jennifer Walsh",
+    role: "Chief Executive Officer",
+    desc: "Leading Clarity with over 12 years of experience in digital transformation and strategic brand growth.",
+    links: [
+      { icon: <TfiEmail />, link: "mailto:jennifer@clarity.com" },
+      { icon: <BsLinkedin />, link: "#" },
+    ],
+    image: Image1,
+  },
+  {
+    id: 2,
+    name: "Robert Martinez",
+    role: "Chief Technology Officer",
+    desc: "A visionary developer specializing in scalable cloud architectures and modern full-stack ecosystems.",
+    links: [
+      { icon: <TfiEmail />, link: "mailto:robert@clarity.com" },
+      { icon: <Twitter fill="currentColor" />, link: "#" },
+    ],
+    image: Image2,
+  },
+  {
+    id: 3,
+    name: "Lisa Thompson",
+    role: "Head of Operations",
+    desc: "Optimizing workflows and ensuring seamless project delivery through agile methodologies and lean management.",
+    links: [
+      { icon: <TfiEmail />, link: "mailto:lisa@clarity.com" },
+      { icon: <Twitter fill="currentColor" />, link: "#" },
+    ],
+    image: Image3,
+  },
+  {
+    id: 4,
+    name: "Alex Garcia",
+    role: "VP of Marketing",
+    desc: "Expert in data-driven marketing strategies and building high-impact digital presence for global brands.",
+    links: [
+      { icon: <TfiEmail />, link: "mailto:alex@clarity.com" },
+      { icon: <Instagram />, link: "#" },
+    ],
+    image: Image4,
+  },
+];
 
   return (
     <motion.div
@@ -152,9 +128,7 @@ const TeamCarousel = () => {
             Ready to Join Our mission?
           </h3>
           <p className="text-gray-400 lg:text-lg">
-            At vero eos et accusamus et iusto odio dignissimos ducimus qui
-            blanditiis praesentium voluptatum deleniti atque corrupti quos
-            dolores.
+            We’re always looking for ambitious designers, developers, and strategists to join our remote-first team. If you're passionate about building the future of the web, we'd love to hear from you.
           </p>
           <div className="flex w-full justify-center flex-col lg:flex-row gap-5 items-center">
             <button className={`${primaryBtn} w-full lg:w-auto rounded-xl!`}>

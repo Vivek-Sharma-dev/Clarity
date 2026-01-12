@@ -1,7 +1,7 @@
-import team1 from "../../assets/TeamSection/team1.png";
-import team2 from "../../assets/TeamSection/team2.png";
-import team3 from "../../assets/TeamSection/team3.png";
-import team4 from "../../assets/TeamSection/team4.png";
+import team1 from "../../assets/TeamSection/Team/team1.webp";
+import team2 from "../../assets/TeamSection/Team/team2.webp";
+import team3 from "../../assets/TeamSection/Team/team3.webp";
+import team4 from "../../assets/TeamSection/Team/team4.webp";
 import { Dribbble, Instagram, Twitter } from "lucide-react";
 import { BsBehance, BsGithub, BsLinkedin } from "react-icons/bs";
 import TeamCard from "./TeamCard";
@@ -80,32 +80,31 @@ const Team = () => {
             viewport={{ once: true, amount: 0.2 }}
             className="flex flex-col gap-5 lg:w-1/2"
           >
-            <h3 className="text-2xl lg:text-3xl font-bold">
-              Meet Our Exceptional Team
-            </h3>
+            <h3 className="text-2xl lg:text-3xl font-bold">Our Expert Team</h3>
             <p className="text-gray-500 font-medium">
-              Our strength lies in our collaboration. We bring together experts from different fields to ensure every project is handled with technical precision and creative flair. From concept to deployment, we work as one to deliver excellence.
+              Meet the visionaries behind Clarity who turn complex challenges
+              into digital success stories.{" "}
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-10">
               <div className="flex flex-col text-center">
                 <span className="lg:text-3xl font-bold text-(--secondary-color)">
-                  50+
+                  12+
                 </span>
                 <span className="uppercase font-medium text-gray-500">
-                  Team members
+                  Core Specialists
                 </span>
               </div>
               <div className="flex flex-col text-center">
                 <span className="lg:text-3xl font-bold text-(--secondary-color)">
-                  8
+                  5
                 </span>
                 <span className="uppercase font-medium text-gray-500">
-                  Departments
+                  Dedicated Departments
                 </span>
               </div>
               <div className="flex flex-col text-center">
                 <span className="lg:text-3xl font-bold text-(--secondary-color)">
-                  15+
+                  5+
                 </span>
                 <span className="uppercase font-medium text-gray-500">
                   countries

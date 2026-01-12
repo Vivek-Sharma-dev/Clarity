@@ -4,24 +4,28 @@ import { Link } from "react-scroll";
 const Footer = () => {
   const socialLinks = [
     {
-      icon: <BsFacebook size={16} />,
+      icon: <BsFacebook size={20} />,
       link: "#",
       status: false,
+      name: "Facebook Link",
     },
     {
-      icon: <BsLinkedin size={16} />,
+      icon: <BsLinkedin size={20} />,
       link: "https://www.linkedin.com/in/vivek-sharma-webdev/",
       status: true,
+      name: "Linkedin Link",
     },
     {
-      icon: <BsTwitterX size={16} />,
+      icon: <BsTwitterX size={20} />,
       link: "#",
       status: false,
+      name: "Twitter Link",
     },
     {
-      icon: <Instagram size={16} />,
+      icon: <Instagram size={20} />,
       link: "https://www.instagram.com/viveksharma.dev/",
       status: true,
+      name: "Instagram Link",
     },
   ];
   return (
@@ -29,7 +33,7 @@ const Footer = () => {
       {/* Top Footer */}
       <div className=" container mx-auto py-10 flex flex-col lg:flex-row justify-between gap-y-5">
         {/* Column 1 (Bigger) */}
-        <div className="lg:col-span-2 space-y-5">
+        <div className="lg:col-span-2 space-y-3">
           {/* Logo */}
           <Link
             smooth={true}
@@ -40,6 +44,10 @@ const Footer = () => {
           >
             Clarity
           </Link>
+          <p className="lg:text-lg">
+            Building high-performance digital experiences with modern <br />{" "}
+            tech stacks and creative design.
+          </p>
 
           {/* Text */}
           <a
@@ -73,6 +81,7 @@ const Footer = () => {
                 href={link.link}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={link.name}
                 onClick={(e) => !link.status && e.preventDefault()}
                 className="p-3 border text-white/80 border-gray-500 rounded-full 
                 active:text-(--secondary-color) hover:text-(--secondary-color) hover:border-(--secondary-color) 
@@ -86,7 +95,9 @@ const Footer = () => {
 
         {/* Column 2 */}
         <div>
-          <h4 className="text-white font-semibold mb-2 lg:mb-5">Useful Links</h4>
+          <h4 className="text-white font-semibold mb-2 lg:mb-5">
+            Useful Links
+          </h4>
           <ul className="space-y-2 font-medium">
             <li>
               <Link
@@ -119,12 +130,18 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <a href="#" className=" active:text-(--secondary-color) hover:text-(--secondary-color)">
+              <a
+                href="#"
+                className=" active:text-(--secondary-color) hover:text-(--secondary-color)"
+              >
                 Terms of service
               </a>
             </li>
             <li>
-              <a href="#" className=" active:text-(--secondary-color) hover:text-(--secondary-color)">
+              <a
+                href="#"
+                className=" active:text-(--secondary-color) hover:text-(--secondary-color)"
+              >
                 Privacy policy
               </a>
             </li>
@@ -133,31 +150,48 @@ const Footer = () => {
 
         {/* Column 3 */}
         <div>
-          <h4 className="text-white font-semibold mb-2 lg:mb-5">Our Services</h4>
+          <h4 className="text-white font-semibold mb-2 lg:mb-5">
+            Our Services
+          </h4>
           <ul className="space-y-3 font-medium">
             <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
+              <a
+                href="#"
+                className="active:text-(--secondary-color) hover:text-(--secondary-color)"
+              >
                 Web Design
               </a>
             </li>
             <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
+              <a
+                href="#"
+                className="active:text-(--secondary-color) hover:text-(--secondary-color)"
+              >
                 Web Development
               </a>
             </li>
             <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
+              <a
+                href="#"
+                className="active:text-(--secondary-color) hover:text-(--secondary-color)"
+              >
                 Product Management
               </a>
             </li>
             <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
+              <a
+                href="#"
+                className="active:text-(--secondary-color) hover:text-(--secondary-color)"
+              >
                 Marketing
               </a>
             </li>
             <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
-                Graphic Design
+              <a
+                href="#"
+                className="active:text-(--secondary-color) hover:text-(--secondary-color)"
+              >
+                App Development
               </a>
             </li>
           </ul>
@@ -165,67 +199,52 @@ const Footer = () => {
 
         {/* Column 4 */}
         <div>
-          <h4 className="text-white font-semibold mb-2 lg:mb-5">Hic solutasetp</h4>
+          <h4 className="text-white font-semibold mb-2 lg:mb-5">Company</h4>
           <ul className="space-y-3 font-medium">
             <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
-                Molestiae accusamus iure
+              <a
+                href="#"
+                className="active:text-(--secondary-color) hover:text-(--secondary-color)"
+              >
+                About Us
               </a>
             </li>
             <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
-                Excepturi dignissimos
+              <a
+                href="#"
+                className="active:text-(--secondary-color) hover:text-(--secondary-color)"
+              >
+                Our Team
               </a>
             </li>
             <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
-                Suscipit distinctio
+              <a
+                href="#"
+                className="active:text-(--secondary-color) hover:text-(--secondary-color)"
+              >
+                Careers
               </a>
             </li>
             <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
-                Dilecta
+              <a
+                href="#"
+                className="active:text-(--secondary-color) hover:text-(--secondary-color)"
+              >
+                Contact
               </a>
             </li>
             <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
-                Sit quas consectetur
+              <a
+                href="#"
+                className="active:text-(--secondary-color) hover:text-(--secondary-color)"
+              >
+                Blog
               </a>
             </li>
           </ul>
         </div>
 
         {/* Column 5 */}
-        <div>
-          <h4 className="text-white font-semibold mb-2 lg:mb-5">Nobis illum</h4>
-          <ul className="space-y-3 font-medium">
-            <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
-                Ipsam
-              </a>
-            </li>
-            <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
-                Laudantium dolorum
-              </a>
-            </li>
-            <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
-                Dinera
-              </a>
-            </li>
-            <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
-                Trodelas
-              </a>
-            </li>
-            <li>
-              <a href="#" className="active:text-(--secondary-color) hover:text-(--secondary-color)">
-                Flexo
-              </a>
-            </li>
-          </ul>
-        </div>
       </div>
 
       {/* Bottom Copyright */}
@@ -235,9 +254,19 @@ const Footer = () => {
         </p>
         <span className="text-white text-xs">
           Designed by{" "}
-          <a href="https://bootstrapmade.com/" className="font-bold text-(--secondary-color)">BootstrapMade</a>{" "}
+          <a
+            href="https://bootstrapmade.com/"
+            className="font-bold text-(--secondary-color)"
+          >
+            BootstrapMade
+          </a>{" "}
           and Recreated by{" "}
-          <a href="https://github.com/Vivek-Sharma-dev" className="font-bold text-(--secondary-color)">Vivek Sharma</a>
+          <a
+            href="https://github.com/Vivek-Sharma-dev"
+            className="font-bold text-(--secondary-color)"
+          >
+            Vivek Sharma
+          </a>
         </span>
       </div>
     </footer>

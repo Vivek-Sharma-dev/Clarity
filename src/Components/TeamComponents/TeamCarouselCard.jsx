@@ -28,7 +28,7 @@ const TeamCarouselCard = ({ name, role, desc, links, image, index }) => {
       <div className="mx-4 lg:mx-0 relative z-50 mt-5 rounded-2xl text-center overflow-hidden hover:-translate-y-3 transition-all duration-300 shadow-[0_0px_0px_.2px_rgb(255,255,255)]">
         <div
           style={{ backgroundImage: `url(${image})` }}
-          className={` w-full h-50 bg-cover bg-center`}
+          className={` w-full h-[35vh] bg-cover bg-center`}
         ></div>
         <div className="bg-(--nav-bg) py-5 px-5">
           <h4 className="text-xl font-normal mt-2">{name}</h4>

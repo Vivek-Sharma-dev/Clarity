@@ -233,13 +233,13 @@ const ProjectPart = () => {
               I’m currently available for freelance work and full-time
               opportunities. Let’s discuss how I can help your project.
             </p>
-            <div>
-              <button className={`${primaryBtn} rounded-xl! mr-5 mb-5`}>
+            <div className="flex items-center gap-5">
+              <button className={`${primaryBtn} rounded-xl! `}>
                 Get in Touch
               </button>
               <a
                 href="https://github.com/Vivek-Sharma-dev"
-                className={`${transparentBtn} rounded-xl! mr-5`}
+                className={`${transparentBtn} rounded-xl! `}
               >
                 GitHub Profile
               </a>
@@ -247,7 +247,6 @@ const ProjectPart = () => {
           </div>
         </motion.div>
       </div>
-      <AnimatePresence>
         {isViewerOpen && (
           <ProjectsCarousel
             setIsViewerOpen={setIsViewerOpen}
@@ -256,7 +255,6 @@ const ProjectPart = () => {
             currentIndex={currentIndex}
           />
         )}
-      </AnimatePresence>
     </>
   );
 };

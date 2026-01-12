@@ -6,7 +6,7 @@ import about2 from "../assets/AboutSection/About2.png";
 import { motion, useInView } from "motion/react";
 const AboutSection = () => {
   const aboutRef = useRef(null);
-  const isInView = useInView(aboutRef, { amount: 0.2 });
+  const isInView = useInView(aboutRef, { amount: 0.2 , once: true});
   const textList = [
     {
       id: 1,

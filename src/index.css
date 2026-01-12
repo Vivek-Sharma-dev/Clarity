@@ -4,6 +4,9 @@
   box-sizing: border-box !important;
 }
 
+html, body {
+  background-color: var(--primary-color)
+}
 :root {
   --primary-color: #060820;
   --secondary-color: #524dd3;
@@ -41,4 +44,14 @@
     height: 14px !important;
   }
   
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #060820;
+    --secondary-color: #524dd3;
+    --nav-bg : #1b1933;
+    color-scheme: dark !important;
+  }
 }

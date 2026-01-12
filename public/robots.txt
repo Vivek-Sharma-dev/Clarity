@@ -1,2 +1,3 @@
 User-agent: *
 Allow: /
+Sitemap: https://clarity-zeta-one.vercel.app/sitemap.xml

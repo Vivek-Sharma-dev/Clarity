@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { h2Style, primaryBtn } from "../Style/ComponentsStyle";
 import { Check } from "lucide-react";
-import about from "../assets/AboutSection/About1.webp";
+import about from "../assets/AboutSection/About1.png";
 import about2 from "../assets/AboutSection/About2.png";
 import { motion } from "motion/react";
 const AboutSection = () => {
@@ -67,28 +67,29 @@ const AboutSection = () => {
             ))}
           </ul>
 
-          <motion.a
-            href="#"
+          <motion.div
             initial={{ scale: 0, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ ease: "easeOut", duration: 0.5 }}
             viewport={{ once: true, amount: 0.2 }}
             className={`${primaryBtn} mt-5 lg:mt-10 inline-block will-change-transform`}
           >
+            <a href="#">
             Discover More
-          </motion.a>
+            </a>
+          </motion.div>
         </motion.div>
         <motion.div
           initial={{ x: 100, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="relative lg:w-4/6 ps-8 lg:ps-0"
         >
           <motion.img
-            initial={{ scale: 0, opacity: 0 }}
+            initial={{ scale: .70, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, delay: 0.7 }}
             src={about}
             alt="Planing on a task with team members"
@@ -97,7 +98,7 @@ const AboutSection = () => {
           <motion.img
             initial={{ y: 100, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, delay: 1 }}
             src={about2}
             alt="Celebration with team members"
@@ -106,7 +107,7 @@ const AboutSection = () => {
           <motion.div
             initial={{ x: 100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
             transition={{ duration: 0.5, delay: 1.2 }}
             className="will-change-transform flex flex-col lg:flex-row gap-5 absolute -top-25 lg:-top-10 py-5 right-0 bg-(--primary-color)/90 p-3 rounded-xl"
           >

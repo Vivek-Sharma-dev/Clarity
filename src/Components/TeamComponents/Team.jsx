@@ -87,7 +87,7 @@ const Team = () => {
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-10">
               <div className="flex flex-col text-center">
-                <span className="lg:text-3xl font-bold text-(--secondary-color)">
+                <span className="text-xl lg:text-3xl font-bold text-(--secondary-color)">
                   12+
                 </span>
                 <span className="uppercase font-medium text-gray-500">
@@ -95,7 +95,7 @@ const Team = () => {
                 </span>
               </div>
               <div className="flex flex-col text-center">
-                <span className="lg:text-3xl font-bold text-(--secondary-color)">
+                <span className="text-xl lg:text-3xl font-bold text-(--secondary-color)">
                   5
                 </span>
                 <span className="uppercase font-medium text-gray-500">
@@ -103,7 +103,7 @@ const Team = () => {
                 </span>
               </div>
               <div className="flex flex-col text-center">
-                <span className="lg:text-3xl font-bold text-(--secondary-color)">
+                <span className="text-xl lg:text-3xl font-bold text-(--secondary-color)">
                   5+
                 </span>
                 <span className="uppercase font-medium text-gray-500">

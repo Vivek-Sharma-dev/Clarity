@@ -47,7 +47,7 @@ const ProjectPart = () => {
   const btnVariants = {
     hidden: {
       opacity: 0,
-      scale: 0,
+      scale: 0.6,
     },
     visible: {
       opacity: 1,
@@ -156,10 +156,9 @@ const ProjectPart = () => {
           </p>
         </motion.div>
         <motion.div
-          initial={{ scale: 0, opacity: 0 }}
+          initial={{ scale: 0.6, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           viewport={{ once: true, amount: 0.2 }}
-
           transition={{ duration: 0.5 }}
           className="my-5 lg:my-10"
         >
@@ -201,7 +200,6 @@ const ProjectPart = () => {
             {filteredProjects.map((project, idx) => (
               <motion.div
                 key={project.id}
-                
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}

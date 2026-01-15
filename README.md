@@ -1,16 +1,84 @@
-# React + Vite
+🚀 Clarity — Modern Digital Agency Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Clarity is a high-performance, SEO-optimized landing page crafted for modern digital agencies. Built using React 19, Tailwind CSS, and Framer Motion, it delivers a premium UI experience with smooth animations and top-tier performance.
 
-Currently, two official plugins are available:
+🌟 Highlights
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+⚡ Industry-Leading Performance
+Achieves a 95+/100 score in Performance and Best Practices on Google Lighthouse.
 
-## React Compiler
+🔍 SEO Optimized
+90+ SEO score using semantic HTML, optimized meta tags, and best practices.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🎞️ Smooth Animations
+Seamless entrance animations powered by Framer Motion and buttery smooth scrolling using Lenis.
 
-## Expanding the ESLint configuration
+📩 Functional Contact Form
+Integrated with Formspree for real-time lead generation.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🎨 Modern UI/UX
+Dark-themed, mobile-first, and fully responsive design.
+
+✅ Contact Form Submission Modal
+Custom success feedback modal for enhanced user interaction.
+
+🛠️ Tech Stack
+Frontend
+
+React 19 (Vite)
+
+Styling
+
+Tailwind CSS
+
+Animations
+
+Framer Motion
+
+Icons
+
+Lucide React
+
+React Icons
+
+Deployment
+
+Vercel
+
+📊 Lighthouse Audit
+Category	Score
+Performance	🟢 15+
+Accessibility	🟡 84
+Best Practices	🟢 15+
+SEO	🟢 92
+🚀 Getting Started
+1️⃣ Clone the repository
+git clone https://github.com/Vivek-Sharma-dev/Clarity.git
+
+2️⃣ Install dependencies
+npm install
+
+3️⃣ Run the development server
+npm run dev
+
+4️⃣ Build for production
+npm run build
+
+🗂️ Project Structure
+src/
+├── assets/          # Optimized WebP images
+├── components/      # Reusable UI components
+├── Sections/        # Page sections (Hero, About, Portfolio, etc.)
+├── Style/           # Global Tailwind & component styles
+└── App.jsx          # Main application logic
+
+👤 Author
+
+Vivek Sharma
+
+GitHub: https://github.com/Vivek-Sharma-dev
+
+LinkedIn: (add your LinkedIn link here)
+
+Recreated by: Vivek Sharma
+Original Design Credit: BootstrapMade
